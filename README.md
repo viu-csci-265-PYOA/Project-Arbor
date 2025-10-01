@@ -21,7 +21,7 @@
 - Mi:
   - Lead: 
   - Understudy(s): 
-- Timber-faol:
+- <img src="images/faol-image-01.jpg" alt="Timber-faol's Image" style="width:10%; height:auto;"> Timber-faol:
   - Lead: Version Control
   - Understudy(s): Presentation
 
