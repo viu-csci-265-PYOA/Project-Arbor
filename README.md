@@ -9,7 +9,7 @@
 -duncan-mcleod-1996: *main contact* <img src="images/Funky-Emu.jpg" alt="Duncan's Image" Style="width:10%; height:auto;">
   - Lead: Project Lead
   - Understudy(s): Programming understudy
-- Ka:
+- Ka: has a chromebook...
   - Lead: 
   - Understudy(s): 
 - <img src="images/Kristen1.jpg" alt="KristenM22's Image" style="width:10%; height:auto;">
