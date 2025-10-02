@@ -16,7 +16,7 @@
 - KristenM22:
   - Lead: Notetaking
   - Understudy(s): Testing
-- Ma:
+- <img src="images/maddiemei8-profile.jpg" alt="Maddiemei8's Image" style="width:10%; height:auto;">Ma:
   - Lead: 
   - Understudy(s): 
 - <img src="images/lev.png" alt="Milu's Image" style="width:10%; height:auto;">milutopaz:
