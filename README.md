@@ -12,15 +12,16 @@
 - Ka:
   - Lead: 
   - Understudy(s): 
-- Kr:
-  - Lead: 
-  - Understudy(s): 
+- <img src="images/Kristen1.jpg" alt="KristenM22's Image" style="width:10%; height:auto;">
+- KristenM22:
+  - Lead: Notetaking
+  - Understudy(s): Testing
 - Ma:
   - Lead: 
   - Understudy(s): 
-- Mi:
-  - Lead: 
-  - Understudy(s): 
+- <img src="images/lev.png" alt="Milu's Image" style="width:10%; height:auto;">milutopaz:
+  - Lead: Programming
+  - Understudy(s): Version Control
 - <img src="images/faol-image-01.jpg" alt="Timber-faol's Image" style="width:10%; height:auto;"> Timber-faol:
   - Lead: Version Control
   - Understudy(s): Presentation
