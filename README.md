@@ -12,13 +12,12 @@
 - Ka: has a chromebook...
   - Lead: 
   - Understudy(s): 
-- <img src="images/Kristen1.jpg" alt="KristenM22's Image" style="width:10%; height:auto;">
-- KristenM22:
+- <img src="images/Kristen1.jpg" alt="KristenM22's Image" style="width:10%; height:auto;">KristenM22:
   - Lead: Notetaking
   - Understudy(s): Testing
 - <img src="images/maddiemei8-profile.jpg" alt="Maddiemei8's Image" style="width:10%; height:auto;">Ma:
-  - Lead: 
-  - Understudy(s): 
+  - Lead: Narrative
+  - Understudy(s): Project Lead/Presentations
 - <img src="images/lev.png" alt="Milu's Image" style="width:10%; height:auto;">milutopaz:
   - Lead: Programming
   - Understudy(s): Version Control
