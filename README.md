@@ -19,7 +19,7 @@
 - Ma:
   - Lead: 
   - Understudy(s): 
-- milutopaz:
+- <img src="images/lev.png" alt="Milu's Image" style="width:10%; height:auto;">milutopaz:
   - Lead: Programming
   - Understudy(s): Version Control
 - <img src="images/faol-image-01.jpg" alt="Timber-faol's Image" style="width:10%; height:auto;"> Timber-faol:
