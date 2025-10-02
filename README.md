@@ -18,9 +18,9 @@
 - Ma:
   - Lead: 
   - Understudy(s): 
-- Mi:
-  - Lead: 
-  - Understudy(s): 
+- milutopaz:
+  - Lead: Programming
+  - Understudy(s): Version Control
 - <img src="images/faol-image-01.jpg" alt="Timber-faol's Image" style="width:10%; height:auto;"> Timber-faol:
   - Lead: Version Control
   - Understudy(s): Presentation
