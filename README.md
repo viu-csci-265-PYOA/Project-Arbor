@@ -6,9 +6,9 @@
 
 ## Contact person and email address
 
--duncan-mcleod-1996: *main contact* <img src="images/Funky-Emu.jpg" alt="Duncan's Image" Style="width:10%; height:auto;"> duncan-mcleod-1996: *main contact*
-  - Lead: 
-  - Understudy(s): 
+-duncan-mcleod-1996: *main contact* <img src="images/Funky-Emu.jpg" alt="Duncan's Image" Style="width:10%; height:auto;">
+  - Lead: Project Lead
+  - Understudy(s): Programming understudy
 - Ka:
   - Lead: 
   - Understudy(s): 
