@@ -1,5 +1,5 @@
-#ifndef HELPER_H
-#define HELPER_H
+#ifndef ARBOR_SRC_HELPER_H
+#define ARBOR_SRC_HELPER_H
 
 namespace helper {
     
