@@ -3,8 +3,8 @@
 ## Team name: Pick Your Own Adventure (PYOA)
 
 ## Key contact person and email:
+* duncan-mcleod-1996, *main contact*
 
-* Duncan McLeod, [duncanmcleod1996@gmail.com](mailto:duncanmcleod1996@gmail.com) 
 
 ## Document Structure:
 
