@@ -163,16 +163,13 @@ Examples of acceptable use cases:
 
 ## Discussion of team strengths/weaknesses
 
-From the perspective of trying to successfully complete this project, include discussion of what the team sees as their collective strengths and weaknesses based on the skills and interests the individual team members bring to the table.
+The team’s collective strengths and weaknesses based on the skills and interests our individual team members bring to the table are as follows:
 
-- Weaknesses:  
-  - Inexperienced with game development  
-  - Stairs / parking  / bus / logistics  
-  - Front end design  
-- Strengths:  
-  - Creative background: Ma  
-  - Interest in programming: everyone  
-  - Github experience (some): Timber-faol
-  - Dynamic storytelling: duncan-mcleod-1996
-  - Teamwork: milutopaz
-  - Problem solving: KristenM22
+Strengths:
+
+We all have a natural interest in programming, and want to work together to learn something new out of this project. Timber-faol has some basic github experience, and Ma and duncan-mcloed-1996 both have different experience with dynamic storytelling and have a creative background. We collectively have good communication and teamwork abilities, and are confident in being able to apply this effectively to the project. 
+
+Weaknesses: 
+
+Our collective main weakness is the lack of experience in game development in general. We do not have prior experience with the workflow, tools, or design process involved in creating a game. We are also missing experience with front end design, and are starting from the bottom up with learning that. Some of the practical logistics involving the team meetings are also a weakness, such as coordinating being able to find parking, bus times, and the size of the campus. 
+
