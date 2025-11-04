@@ -4,12 +4,13 @@
 #include "gamestate.hpp"
 // #include "room.hpp"
 
+class GameState;
 class Room;
 
 
 class Command {
 public:
-    virtual void execute();
+    virtual void execute()=0;
     virtual ~Command() {}
 };
 

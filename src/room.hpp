@@ -7,7 +7,7 @@
 #include <iostream>
 #include <string>
 
-// class Action;
+class Action;
 
 class Room
 {

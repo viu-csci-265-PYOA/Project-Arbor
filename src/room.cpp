@@ -14,20 +14,24 @@ char Room::option_input() {
     char input;
     std::cin >> input;
     std::cin.sync();
+
+    return input;
 }
 
 void Room::choose_option(char choice) {
     int i_choice = choice - '0';
-    if(options.size() < 0 && i_choice - 1 <= 0) {
-        options[i_choice]->run_action();
+    if(options.size() > 0 && i_choice - 1 >= 0) {
+        options[i_choice - 1]->run_action();
     }
 }
 
 void Room::enter() {
     print_desc();
-    if(options.size() < 0) {
-        print_options();
-        choose_option(option_input());
+    if(options.size() > 0) {
+      print_options();
+      choose_option(option_input());
+    }else if(options.size() == 0) {
+      std::cout << "dead end" << '\n';
     }
 }
 

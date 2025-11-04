@@ -1,7 +1,7 @@
 #ifndef ARBOR_SRC_GAMESTATE_H
 #define ARBOR_SRC_GAMESTATE_H
 
-// #include "room.hpp"
+//#include "room.hpp"
 
 class Room;
 
@@ -16,7 +16,7 @@ private:
     Room* current_room;
     stage current_stage;
 public:
-    GameState();
+    // GameState();
     ~GameState();
 
     Room* get_current_room() {return current_room;}
@@ -25,14 +25,6 @@ public:
     stage get_current_stage() {return current_stage;}
     void set_current_stage(stage new_stage) {current_stage = new_stage;}
 };
-
-GameState::GameState(/* args */)
-{
-}
-
-GameState::~GameState()
-{
-}
 
 
 #endif

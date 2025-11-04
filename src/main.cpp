@@ -1,8 +1,7 @@
 #include "room.hpp"
-// #include "gamestate.hpp"
-// #include "action.hpp"
-// #include "command.hpp"
-
+#include "gamestate.hpp"
+#include "action.hpp"
+#include "command.hpp" 
 #include <vector>
 #include <iostream>
 
@@ -21,11 +20,11 @@ int main(int argc, char const *argv[])
     GameState* state = new GameState;
 
     Room* room1 = new Room("Dungeon Cell", "a musty cell in a rotten dungeon.");
-    // game_rooms.emplace_back(room1);
+    game_rooms.emplace_back(room1);
     Room* room2 = new Room("stairway", "an ancient stairway leading up.");
-    // game_rooms.emplace_back(room2);
+    game_rooms.emplace_back(room2);
     Room* room3 = new Room("hallway", "a decrepit hallway.");
-    // game_rooms.emplace_back(room3);
+    game_rooms.emplace_back(room3);
 
     state->set_current_room(room1);
     state->set_current_stage(PLAYING);
@@ -39,6 +38,9 @@ int main(int argc, char const *argv[])
     game_actions.emplace_back(leave_cell_to_stairway);
     Action* leave_cell_to_hallway = new Action("Go into the hallway", r1_to_r3);
     game_actions.emplace_back(leave_cell_to_hallway);
+
+    room1->add_action(leave_cell_to_stairway);
+    room1->add_action(leave_cell_to_hallway);
 
     while(state->get_current_stage() == PLAYING) {
         state->get_current_room()->enter();

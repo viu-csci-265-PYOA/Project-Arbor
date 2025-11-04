@@ -7,6 +7,7 @@
 #include <string>
 #include <functional>
 
+class Command;
 
 class Action
 {
