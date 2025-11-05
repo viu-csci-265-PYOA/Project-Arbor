@@ -21,7 +21,8 @@ private:
     void choose_option(char choice);
     void print_desc() const;
 public:
-    Room(std::string name, std::string desc) : room_name(name), room_description(desc) {}
+    Room(std::string name, std::string desc) 
+        : room_name(name), room_description(desc) {}
     ~Room() {};
 
     void enter();

@@ -15,7 +15,8 @@ private:
     std::string name;
     Command* command;
 public:
-    Action(std::string name, Command* command) : name{name}, command{command} {}
+    Action(std::string name, Command* command) 
+        : name{name}, command{command} {}
     ~Action() {}
 
     // void print() const;

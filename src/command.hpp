@@ -20,7 +20,8 @@ private:
     GameState* state;
 
 public:
-    LeaveCommand(Room* next_room, GameState* state) : next_room(next_room), state(state)
+    LeaveCommand(Room* next_room, GameState* state) 
+        : next_room(next_room), state(state)
     {
 
     }
