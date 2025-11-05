@@ -9,6 +9,8 @@
 
 class Action;
 
+//room class, holds a vector of actions to be presented to the player
+//the public enter() function runs all of the relevant logic.
 class Room
 {
 private:
@@ -27,6 +29,7 @@ public:
 
     void enter();
 
+    //these are currently unused, but could be useful.
     std::string get_name() const;
     std::string get_desc() const;
 

@@ -1,7 +1,7 @@
 #ifndef ARBOR_SRC_GAMESTATE_H
 #define ARBOR_SRC_GAMESTATE_H
 
-//#include "room.hpp"
+// #include "room.hpp"
 
 class Room;
 
@@ -10,15 +10,13 @@ enum stage {
     WIN,
 };
 
-class GameState
-{
+//pure data container to store general data about the game.
+//could probably be made into a struct, might be performance benefits?
+class GameState {
 private:
     Room* current_room;
     stage current_stage;
 public:
-    // GameState();
-    ~GameState();
-
     Room* get_current_room() {return current_room;}
     void set_current_room(Room* next_room) { current_room = next_room;}
 
