@@ -173,3 +173,10 @@ Weaknesses:
 
 Our collective main weakness is the lack of experience in game development in general. We do not have prior experience with the workflow, tools, or design process involved in creating a game. We are also missing experience with front end design, and are starting from the bottom up with learning that. Some of the practical logistics involving the team meetings are also a weakness, such as coordinating being able to find parking, bus times, and the size of the campus. 
 
+## Privacy Policy
+
+Our team has agreed to follow a set of guidelines to protect the personal information of the team members when using the GitHub repository.
+
+- Team members will be referred to by first name or GitHub account name in all documents.
+- No identifying information (such as student numbers, email addresses, or phone numbers) will be included.
+
