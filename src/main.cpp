@@ -55,5 +55,24 @@ int main(int argc, char const *argv[])
         state->get_current_room()->enter();
     }
 
+    //cleanup loops. 
+    //currently these will not be called as there is no exit stage
+    //to stop the game loop
+    
+    //cleaning up commands.
+    for (auto i: game_commands) {
+        delete i;
+    }
+
+    //cleaning up actions.
+    for (auto i: game_actions) {
+        delete i;
+    }
+
+    //cleaning up rooms.
+    for (auto i: game_rooms) {
+        delete i;
+    }
+
     return 0;
 }
