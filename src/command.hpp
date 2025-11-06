@@ -30,4 +30,18 @@ public:
     void execute() override;
 };
 
+
+class EndCommand : public Command {
+private:
+    GameState* state;
+
+public:
+    EndCommand(GameState* state) 
+        : state(state) {}
+
+    ~EndCommand () {}
+
+    void execute() override;
+};
+
 #endif
