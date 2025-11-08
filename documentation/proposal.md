@@ -99,55 +99,28 @@ Examples of Command Line and Graphical choice menus:
 
 <img src="../images/ArborGraphicChoice.png" alt="Graphic Choice Screen" style="width:50%; height:auto;">
 
-#### ## Scalable Features
+## Scalable Features
 
-#### **Randomness**
+**Core Aspects**
+* The main decision tree where the player makes choices to move between locations.
+* A narrative storyline.
+* Turning points that will allow the player to change what ending path they are following.
+* The ability for the player’s progress to be saved.
 
-* Aspects of randomness could add replayability and variety without having to create lots of new content  
-  * The order in which locations are available could be randomly shifted each playthrough  
-  * The options available to players in a particular scene could be somewhat randomized as well  
-* Adds an element of risk/reward
+**Secondary Features**
+* An expanded narrative, with more possible endings and decisions for the player to make.
+* Character trait options for the player to choose between at the start of the game, such as height, agility, strength, intelligence, and perception.
+* A basic graphical user interface.
+* Items that allow the player to interact with the game in new ways.
 
-#### **Combat**
+**Stretch Goals**
+* Expanded graphics to increase the player’s immersion into the game.
+* An RPG combat system separate from the narrative with values such as health and damage tracked as discrete statistics.
+* Randomness could add replayability and variety without having to create new content. For example the order locations appear in or the possible options in a scene could be randomized for each play through.
+* The player could choose to have the game generate a backstory for their character, either randomly generated or based off of the traits the player picked.
+* A tree menu that would allow the player to view their decisions and turning points, and select a previous branch to reload from.
 
-* While any combat could be simply narrated to the player, it could also be turned into an RPG system  
-  * Combat encounters would have unique options available based on what kind of character is being played  
-  * Players could find rewards in the form of items that could impact combat  
-  * Health values, damage values, accuracy values could all be tracked as discrete statistics aside from the narrative itself  
-* Different options would be available based on how the player performed in combat
-
-#### **Graphics**
-
-* The main intention is for a text-based game without graphics, but they could potentially be added   
-  * Would increase the player’s immersion into the game
-
-#### **Narrative**
-
-* The narrative can shift throughout development, becoming longer or shorter depending on our resources  
-* Its complexity could be adjusted as well  
-  * The number of Turning Points would make the game more or less complicated  
-  * The amount of Junctions and Decisions would have a similar effect
-
-#### **Character Creation**
-
-* The amount of options available during character creation  
-  * More stats  
-  * More creatures that can be played as  
-* The player could choose to have the game generate a backstory for their character  
-  * Backstory could be assembled from a set group of (?)  
-  * Randomly generated, or based off of the traits the player picked  
-  * Different backstories could affect the character’s traits
-
-#### **Saving**
-
-* The number of save files the player could have at any given time can be increased  
-* The player could have the ability to reload from different branches  
-* A tree menu would allow the navigation of a player’s decisions throughout a journey  
-  * View their decisions  
-  * View turning points  
-  * Select a branch to reload from
-
-## Risks and potential issues
+## Risks and Potential Issues
 
 Completing this project will present many potential issues for our team. The two main risks we are likely to encounter are related to the story line and the technical aspects of game creation.
 
@@ -159,3 +132,4 @@ The other main risk comes from the technical aspects of creating the game and th
 
 To deal with this risk the team will make sure to communicate regularly and support each other through learning new skills, as well as constantly exchange ideas in order to take advantage of our collective experience and creativity. We will keep our roles fluid and leverage understudies to keep any individual team member from becoming overwhelmed by the requirements of the project. 
 
+One other potential issue that our team could encounter is the possibility that a team member may drop the course or be unable to contribute to the project for some other reason. If this happens, the understudies who have been assigned to the team member's roles will take over and new understudies will be assigned. We will also have a discussion to determine if any processes need to be changed or if any goals need to be scaled back to account for the loss of the team member.
