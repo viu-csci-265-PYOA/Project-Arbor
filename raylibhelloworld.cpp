@@ -11,12 +11,12 @@ int main() {
     InitAudioDevice();
     SetTargetFPS(60);
 
-    Texture2D background = LoadTexture("assets/gamescreen.png");
-    Texture2D title = LoadTexture("assets/title.png");
-    Texture2D gameover = LoadTexture("assets/badending.png");
-    Texture2D goodending = LoadTexture("assets/goodending.png");
+    Texture2D background = LoadTexture("resource/gamescreen.png");
+    Texture2D title = LoadTexture("resource/title.png");
+    Texture2D gameover = LoadTexture("resource/badending.png");
+    Texture2D goodending = LoadTexture("resource/goodending.png");
 
-    Music Soundtrack = LoadMusicStream("assets/soundtrack.mp3");
+    Music Soundtrack = LoadMusicStream("resource/soundtrack.mp3");
     PlayMusicStream(Soundtrack);
 
     
