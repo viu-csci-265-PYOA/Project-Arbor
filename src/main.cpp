@@ -10,6 +10,7 @@
 int main(int argc, char const *argv[])
 {
     const std::string game_state_file_name = "resource/save/saved_game_state.bin";
+    const std::string game_state_file_name_test = "resource/save/saved_game_state_test.bin";
 
     //vectors to store the game objects
     //  so they can be deleted at end of runtime
@@ -18,7 +19,9 @@ int main(int argc, char const *argv[])
     std::vector<Action*> game_actions;
 
     GameState* state = save_system::load_game_state(game_state_file_name);
-    state->print_out();
+    save_system::save_game_state(state, game_state_file_name_test);
+
+    // state->print_out();
     // GameState* state = new GameState;
 
     //currently hardcoding the room names and descriptions
