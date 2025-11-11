@@ -2,13 +2,14 @@
 #include "gamestate.hpp"
 #include "action.hpp"
 #include "command.hpp"
+#include "savesystem.hpp"
  
 #include <vector>
 #include <iostream>
 
-
 int main(int argc, char const *argv[])
 {
+    const std::string game_state_file_name = "resource/save/saved_game_state.bin";
 
     //vectors to store the game objects
     //  so they can be deleted at end of runtime
@@ -16,7 +17,9 @@ int main(int argc, char const *argv[])
     std::vector<Command*> game_commands;
     std::vector<Action*> game_actions;
 
-    GameState* state = new GameState;
+    GameState* state = save_system::load_game_state(game_state_file_name);
+    state->print_out();
+    // GameState* state = new GameState;
 
     //currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
@@ -66,6 +69,8 @@ int main(int argc, char const *argv[])
         state->get_current_room()->enter();
     }
 
+    save_system::save_game_state(state, game_state_file_name);
+
 
     //need to check if cleanup is working and there are no memory leaks.
 
@@ -83,6 +88,8 @@ int main(int argc, char const *argv[])
     for (auto i: game_rooms) {
         delete i;
     }
+
+    delete state;
 
     return 0;
 }

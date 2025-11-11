@@ -6,7 +6,6 @@
 #include <string>
 
 #include "savesystem.hpp"
-// #include "gamestate.hpp"
 
 void save_system::save_game_state(GameState* state, std::string file_name) {
     std::ofstream file(file_name, std::ios::binary);
@@ -20,7 +19,7 @@ void save_system::save_game_state(GameState* state, std::string file_name) {
     std::cout << "state saved successfully." << '\n';
 }
 
-GameState* load_game_state(std::string file_name) {
+GameState* save_system::load_game_state(std::string file_name) {
     GameState* new_state = new GameState;
     std::ifstream file(file_name, std::ios::binary);
     if(!file.is_open()) {
