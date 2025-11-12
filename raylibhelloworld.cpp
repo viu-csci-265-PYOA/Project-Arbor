@@ -6,82 +6,99 @@
 
 
 int main() {
+
     // Initialize window
-    InitWindow(800, 600, "Raylib Button Example");
+    InitWindow(1200, 675, "Raylib Button Example");
     InitAudioDevice();
     SetTargetFPS(60);
 
-    Texture2D background = LoadTexture("resource/gamescreen.png");
-    Texture2D title = LoadTexture("resource/title.png");
-    Texture2D gameover = LoadTexture("resource/badending.png");
-    Texture2D goodending = LoadTexture("resource/goodending.png");
+    // Load resources
+    Texture2D gameplayScreen = LoadTexture("resource/gameplayScreen.png");
+    Texture2D mainMenu = LoadTexture("resource/mainMenu.png");
 
     Music Soundtrack = LoadMusicStream("resource/soundtrack.mp3");
     PlayMusicStream(Soundtrack);
 
+    // Menu Screen Buttons
+    Rectangle menuStartGame = {140, 523, 260, 58};
+    Rectangle menuContinueQuest = {470, 523, 260, 58};
+    Rectangle menuExitGame = {800, 523, 260, 58};
+
+    // Game Screen Buttons
+    Rectangle option1 = {72, 514, 260, 58};
+    Rectangle option2 = {705, 514, 260, 58};   
+    Rectangle menuButton = {70, 32, 289, 85}; 
     
     int scene = 1; // Track current scene
 
     while (!WindowShouldClose()) {
+
+        Vector2 mousePoint = GetMousePosition();
+
         UpdateMusicStream(Soundtrack);
         BeginDrawing();
         ClearBackground(RAYWHITE);
 
         //title screen, welcome to project arbor
         if (scene == 1) {
-            DrawTexture(title, 0, 0, WHITE);
+            DrawTexture(mainMenu, 0, 0, WHITE);
 
             // Button: Start Game
-            if (GuiButton((Rectangle){200, 400, 100, 50}, "Start Game")) {
-                scene = 2; // Switch to next scene
+            if (CheckCollisionPointRec(mousePoint, menuStartGame)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    scene = 2; // go to next scene
+                }
             }
+
+            // Button: Continue Quest
+            if (CheckCollisionPointRec(mousePoint, menuContinueQuest)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    scene = 2; // continue save eventually
+                }
+            }
+
             // Button: Exit Game
-            if (GuiButton((Rectangle){500, 400, 100, 50}, "Exit")) {
-                break; // Close screen
+            if (CheckCollisionPointRec(mousePoint, menuExitGame)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    break; // exit game
+                }
             }
         
 
 
         } else if (scene == 2) {
             // Scene 2: Game screen 1, first option
-            DrawTexture(background, 0, 0, WHITE);
+            DrawTexture(gameplayScreen, 0, 0, WHITE);
 
             // Two options for the player
-            if (GuiButton((Rectangle){200, 400, 100, 50}, "Option 1.")) {
-                scene = 3; // go next scene, good ending
-            }
-            if (GuiButton((Rectangle){500, 400, 100, 50}, "Option 2.")) {
-                 scene = 4; // go to next scene, bad ending
-            }
-
-        // Decision from Game screen 1.
-        } else if (scene == 3) {
-
-            // Scene 4: Good Ending
-            DrawTexture(goodending, 0, 0, WHITE);
-            if (GuiButton((Rectangle){350, 400, 100, 50}, "Exit")) {
-                break; // Close screen
+            // First option button
+            if (CheckCollisionPointRec(mousePoint, option1)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    scene = 1; // go to next scene, good ending
+                }
             }
 
-        } else if (scene == 4) {
-            // Scene 3: Bad Ending
-            DrawTexture(gameover, 0, 0, WHITE);
-            if (GuiButton((Rectangle){350, 400, 100, 50}, "Exit")) {
-                break; // Close screen
+            // Second option button
+            if (CheckCollisionPointRec(mousePoint, option2)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    scene = 1; // go to next scene, bad ending
+                }   
+            }
+
+            if (CheckCollisionPointRec(mousePoint, menuButton)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    scene = 1; // go back to main menu
+                }
             }
         }
-
-
         EndDrawing();
     }
     StopMusicStream(Soundtrack);
     UnloadMusicStream(Soundtrack);
     CloseAudioDevice();
 
-    UnloadTexture(background);
-    UnloadTexture(title);
-    UnloadTexture(gameover);    
-    UnloadTexture(goodending);
+    UnloadTexture(mainMenu);
+    UnloadTexture(gameplayScreen);
     CloseWindow();
     return 0;
 }
