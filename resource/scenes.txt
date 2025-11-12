@@ -1,0 +1,31 @@
+The Dungeon:
+You wake up in a moonlit cell. Motes of dust float through the air, 
+flickering in and out of existence as the cross beneath the shadows 
+of heavy iron bars. Through a narrow window set high in the
+crumbling stone wall you can glimpse a courtyard and 
+within it stands a great oak tree. 
+Do you:
+Option 1. Search your surroundings
+Option 2. Try to open the cell door
+
+buffer
+
+You searched your surroundings
+Your hands sift through the hay-strewn floor, but you find nothing 
+that might help you escape the confines of the dungeon. In a matter 
+of moments, two armoured guards appear to investigate the noise. 
+Both guards pay you no attention.
+Do you:
+Option 1. Sit quietly and wait for them to leave
+Option 2. Try to incapacitate one of them
+
+You tried to open the cell door.
+You grasp the thick iron bars and give a tug, but the lock holds 
+fast. You won’t be getting out that way. Past the cell door an 
+unlit torch is  propped against the wall. The bars are just wide 
+enough for you to slip your arm through. The torch is just at the 
+edge of your reach and your fingertips brush against its surface. 
+
+You waited forever and it was a bad bad idea terrible idea wow 
+
+Incapacitating them was even worse, good shit
