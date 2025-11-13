@@ -31,7 +31,7 @@ public:
     Inventory() {}
     Inventory(Item* first_item) {items.emplace_back(first_item);}
 
-    ~Inventory();
+    ~Inventory() {}
 
     int get_inventory_count() const {return items.size();}
     std::vector<std::string> get_item_list() const;

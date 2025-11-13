@@ -1,11 +1,5 @@
 #include "inventory.hpp"
 
-Inventory::~Inventory() {
-    for(auto i: items) {
-        delete i;
-    }
-}
-
 void Inventory::add_item(Item* new_item) {
     items.emplace_back(new_item);
 }
@@ -39,10 +33,6 @@ bool Inventory::check_has_item(std::string target_name) {
 bool Inventory::check_has_item(Item* target_item) {
     int result = search(target_item);
     if(result != -1) {return true;} else {return false;}
-}
-
-int Inventory::get_inventory_count() const {
-    return items.size();
 }
 
 std::vector<std::string> Inventory::get_item_list() const {
