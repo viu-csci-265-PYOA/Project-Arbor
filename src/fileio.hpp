@@ -8,6 +8,8 @@
 
 #include "room.hpp"
 
+//RoomInfo classes stores the room number, name, and file names for each room
+//in our room directory.
 class RoomInfo{
   private:
     int _no;
@@ -32,8 +34,13 @@ class RoomInfo{
     friend class Room;
 };
 
+//Builds vector of RoomInfo so that it can be indexed through to find files.
 void get_directory(std::vector<RoomInfo>& dir);
+
+//Retrieves description for a particular room from a narrative file.
 std::string get_description(std::vector<RoomInfo>& dir, int choice);
+
+//IN PROGRESS: Retrieves options for a particular room from a narrative file.
 //std::string get_options(std::vector<RoomInfo>& dir, int choice);
 
 #endif
