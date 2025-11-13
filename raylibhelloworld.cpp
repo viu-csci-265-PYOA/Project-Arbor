@@ -50,12 +50,17 @@ int main() {
     Texture2D gameplayScreen = LoadTexture("resource/gameplayScreen.png");
     Texture2D mainMenu = LoadTexture("resource/mainMenu.png");
     Texture2D endScreen = LoadTexture("resource/endScreen.png");
+    Texture2D pauseMenu = LoadTexture("resource/pauseMenu.png");
 
     // Menu Screen Buttons
     Rectangle menuStartGame = {140, 523, 260, 58};
     Rectangle menuContinueQuest = {470, 523, 260, 58};
     Rectangle menuExitGame = {800, 523, 260, 58};
-    Rectangle endGameExit = {485, 505, 224, 50};
+    Rectangle endGameExit = {481, 543, 222, 50};
+
+    //Pause Screen Buttons
+    Rectangle pauseResume = {346, 547, 222, 50};
+    Rectangle pauseExit = {636, 547, 222, 50};
 
     // Game Screen Buttons
     Rectangle option1 = {72, 514, 423, 75};
@@ -63,7 +68,7 @@ int main() {
     Rectangle menuButton = {70, 32, 220, 55}; 
 
     // Game Screen Management
-    enum Screen { MENU, GAMEPLAY, END };
+    enum Screen { MENU, PAUSE, GAMEPLAY, END };
     Screen currentScreen = MENU;
 
     // -----------------------------
@@ -101,16 +106,39 @@ int main() {
                     break; // exit game
                 }
             }
-        
+
+
+        // -------------
+        // PAUSE SCREEN
+        // -------------
+        } else if (currentScreen == PAUSE) {
+
+            DrawTexture(pauseMenu, 0, 0, WHITE);
+
+            if (CheckCollisionPointRec(mousePoint, pauseResume)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    currentScreen = GAMEPLAY; // resume game
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, pauseExit)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    break; // exit game
+                }
+            }
+
 
         // ------------------
         // GAMEPLAY SCREEN
         // ------------------
         } else if (currentScreen == GAMEPLAY) {
-            // Scene 2: Game screen 1, first option
+          
+            // Gameplay Screen
             DrawTexture(gameplayScreen, 0, 0, WHITE);
 
+            // Only loop until scenes are exhausted
             if (currentScene < (int)scenes.size()) {
+
                 DrawText(scenes[currentScene].c_str(), 80, 120, 24, BLACK);
 
                 // Two options for the player
@@ -125,16 +153,18 @@ int main() {
                 // Second option button
                 if (CheckCollisionPointRec(mousePoint, option2)) {
                     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                        currentScene += 3;
-                        currentScreen = GAMEPLAY; // go to next scene
+                        currentScene += 3; // go to next scene
+                        currentScreen = GAMEPLAY; 
                     }   
                 }
 
                 if (CheckCollisionPointRec(mousePoint, menuButton)) {
                     if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                        currentScreen = MENU; // go back to main menu
+                        currentScreen = PAUSE; // go to pause menu
                     }
                 }
+
+            // no more scenes left, go to end screen
             } else {
                 currentScreen = END; // go to end screen
             }
@@ -164,6 +194,7 @@ int main() {
     }
 
     // Unload resources and close window
+    UnloadTexture(pauseMenu);
     UnloadTexture(endScreen);
     UnloadTexture(mainMenu);
     UnloadTexture(gameplayScreen);
