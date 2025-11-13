@@ -1,7 +1,8 @@
 #ifndef ARBOR_SRC_COMMAND_H
 #define ARBOR_SRC_COMMAND_H
 
-#include "gamestate.hpp" 
+#include "gamestate.hpp"
+#include "character.hpp" 
 
 class Room;
 
@@ -17,11 +18,11 @@ public:
 class LeaveCommand : public Command {
 private:
     Room* next_room;
-    GameState* state;
+    Character* player;
 
 public:
-    LeaveCommand(Room* next_room, GameState* state) 
-        : next_room(next_room), state(state) {}
+    LeaveCommand(Room* next_room, Character* player) 
+        : next_room(next_room), player(player) {}
 
     ~LeaveCommand () {}
 
@@ -34,7 +35,6 @@ public:
 class EndCommand : public Command {
 private:
     GameState* state;
-
 public:
     EndCommand(GameState* state) 
         : state(state) {}

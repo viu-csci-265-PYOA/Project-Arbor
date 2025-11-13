@@ -2,6 +2,7 @@
 #include "gamestate.hpp"
 #include "action.hpp"
 #include "command.hpp"
+#include "character.hpp"
  
 #include <vector>
 #include <iostream>
@@ -17,6 +18,7 @@ int main(int argc, char const *argv[])
     std::vector<Action*> game_actions;
 
     GameState* state = new GameState;
+    Character* player = new Character;
 
     //currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
@@ -27,21 +29,21 @@ int main(int argc, char const *argv[])
     Room* room_3 = new Room("hallway", "a decrepit hallway.");
     game_rooms.emplace_back(room_3);
 
-    state->set_current_room(room_1);
-    state->set_current_stage(PLAYING);
+    player->set_current_room(room_1);
+    state->set_current_state(PLAYING);
 
     //leave command only refers to the target room, so the name is important
     //  make clear what room each one is coming from.
-    Command* r1_to_r2 = new LeaveCommand(room_2, state);
+    Command* r1_to_r2 = new LeaveCommand(room_2, player);
     game_commands.emplace_back(r1_to_r2);
-    Command* r1_to_r3 = new LeaveCommand(room_3, state);
+    Command* r1_to_r3 = new LeaveCommand(room_3, player);
     game_commands.emplace_back(r1_to_r3);
 
     //two different commands doing the same thing,
     //need to determine if one command can be shared by multiple actions.
-    Command* r2_end = new EndCommand(state);
+    Command* r2_end = new EndCommand(player);
     game_commands.emplace_back(r2_end);
-    Command* r3_end = new EndCommand(state);
+    Command* r3_end = new EndCommand(player);
     game_commands.emplace_back(r3_end);
 
     //creating actions for the relevant commands.
@@ -62,8 +64,8 @@ int main(int argc, char const *argv[])
     room_3->add_action(hallway_dead_end);
 
     //game loop.
-    while(state->get_current_stage() == PLAYING) {
-        state->get_current_room()->enter();
+    while(state->get_current_state() == PLAYING) {
+        player->get_current_room()->enter();
     }
 
 
