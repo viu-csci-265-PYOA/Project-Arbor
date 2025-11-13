@@ -1,28 +1,18 @@
 #ifndef ARBOR_SRC_GAMESTATE_H
 #define ARBOR_SRC_GAMESTATE_H
 
-// #include "room.hpp"
-
-class Room;
-
-enum stage {
+enum state {
     PLAYING,
     WIN,
 };
 
-//pure data container to store general data about the game.
-//could probably be made into a struct, might be performance benefits?
+//Simple enum to keep track of what state the game's in.
 class GameState {
 private:
-    Room* current_room;
-    stage current_stage;
+    state current_state;
 public:
-    Room* get_current_room() {return current_room;}
-    void set_current_room(Room* next_room) { current_room = next_room;}
-
-    stage get_current_stage() {return current_stage;}
-    void set_current_stage(stage new_stage) {current_stage = new_stage;}
+    state get_current_state() {return current_state;}
+    void set_current_state(state new_state) {current_state = new_state;}
 };
-
 
 #endif
