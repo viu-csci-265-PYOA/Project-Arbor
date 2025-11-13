@@ -22,8 +22,6 @@ public:
 
     stage get_current_stage() {return current_stage;}
     void set_current_stage(stage new_stage) {current_stage = new_stage;}
-
-    void print_out();
 };
 
 

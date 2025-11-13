@@ -18,11 +18,7 @@ int main(int argc, char const *argv[])
     std::vector<Command*> game_commands;
     std::vector<Action*> game_actions;
 
-    GameState* state = save_system::load_game_state(game_state_file_name);
-    save_system::save_game_state(state, game_state_file_name_test);
-
-    // state->print_out();
-    // GameState* state = new GameState;
+    GameState* state = save_system::load_object<GameState>(game_state_file_name);
 
     //currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
@@ -72,7 +68,7 @@ int main(int argc, char const *argv[])
         state->get_current_room()->enter();
     }
 
-    save_system::save_game_state(state, game_state_file_name);
+    save_system::save_object<GameState>(state, game_state_file_name);
 
 
     //need to check if cleanup is working and there are no memory leaks.
