@@ -2,7 +2,7 @@
 
 void get_directory(std::vector<RoomInfo>& dir){
   std::ifstream input_read;
-  input_read.open("resource/roomdir.txt");
+  input_read.open("resource/room_dir.txt");
   if(!input_read.is_open()){
     std::cout << "Unable to access room directory resource folder.\n";
     std::exit(-1);
