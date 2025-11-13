@@ -55,6 +55,7 @@ int main() {
     Rectangle menuStartGame = {140, 523, 260, 58};
     Rectangle menuContinueQuest = {470, 523, 260, 58};
     Rectangle menuExitGame = {800, 523, 260, 58};
+    Rectangle endGameExit = {485, 505, 224, 50};
 
     // Game Screen Buttons
     Rectangle option1 = {72, 514, 423, 75};
@@ -109,31 +110,39 @@ int main() {
             // Scene 2: Game screen 1, first option
             DrawTexture(gameplayScreen, 0, 0, WHITE);
 
-            DrawText(scenes[currentScene].c_str(), 80, 120, 24, BLACK);
+            if (currentScene < (int)scenes.size()) {
+                DrawText(scenes[currentScene].c_str(), 80, 120, 24, BLACK);
 
-            // Two options for the player
-            // First option button
-            if (CheckCollisionPointRec(mousePoint, option1)) {
-                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                    currentScene += 2;; // go to next scene
-                    currentScreen = GAMEPLAY;
+                // Two options for the player
+                // First option button
+                if (CheckCollisionPointRec(mousePoint, option1)) {
+                    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                        currentScene += 2;; // go to next scene
+                        currentScreen = GAMEPLAY;
+                    }
                 }
-            }
 
-            // Second option button
-            if (CheckCollisionPointRec(mousePoint, option2)) {
-                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                    currentScene += 3;
-                    currentScreen = GAMEPLAY; // go to next scene
-                }   
-            }
-
-            if (CheckCollisionPointRec(mousePoint, menuButton)) {
-                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                    currentScreen = MENU; // go back to main menu
+                // Second option button
+                if (CheckCollisionPointRec(mousePoint, option2)) {
+                    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                        currentScene += 3;
+                        currentScreen = GAMEPLAY; // go to next scene
+                    }   
                 }
+
+                if (CheckCollisionPointRec(mousePoint, menuButton)) {
+                    if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                        currentScreen = MENU; // go back to main menu
+                    }
+                }
+            } else {
+                currentScreen = END; // go to end screen
             }
 
+
+        // -------------
+        // END SCREEN
+        // -------------
         } else if (currentScreen == END){
             // Scene 3: End Screen
             DrawTexture(endScreen, 0, 0, WHITE);
@@ -141,6 +150,12 @@ int main() {
             if (CheckCollisionPointRec(mousePoint, menuButton)) {
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
                     currentScreen = MENU; // go back to main menu
+                }
+            }
+
+            if (CheckCollisionPointRec(mousePoint, endGameExit)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    break; // exit game
                 }
             }
 
