@@ -2,8 +2,8 @@
 
 # Variables:
 CXX = g++
-CXXFLAGS = -Wall -Wextra -g
-TARGET = /bin/Arbor
+CXXFLAGS = -Wall -Wextra -g -Iinclude
+TARGET = bin/arbor
 SRC = $(wildcard src/*.cpp)
 OBJECTS = $(SRC:.c=.o)
 
@@ -24,7 +24,3 @@ clean:
 .PHONY: cleanall
 cleanall:
 	rm -f $(OBJECTS) $(TARGET)
-
-
-main:
-	g++ src/main.cpp src/command.cpp src/action.cpp src/room.cpp -o main.exe
