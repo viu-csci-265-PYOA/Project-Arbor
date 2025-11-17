@@ -3,7 +3,7 @@
 # Variables:
 CXX = g++
 CXXFLAGS = -Wall -Wextra -g -Iinclude
-TARGET = bin/arbor
+TARGET = bin/arbor.exe
 SRC = $(wildcard src/*.cpp)
 OBJECTS = $(SRC:.c=.o)
 
