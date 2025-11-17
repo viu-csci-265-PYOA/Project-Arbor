@@ -39,7 +39,7 @@ std::vector<std::string> loadTextScenes(const std::string& filename) {
 int main() {
 
     // Initialize window
-    InitWindow(1200, 675, "Raylib Button Example");
+    InitWindow(1200, 675, "Raylib Prototype");
     SetTargetFPS(60);
 
     // Load text scenes
@@ -58,7 +58,7 @@ int main() {
     Rectangle menuExitGame = {800, 523, 260, 58};
     Rectangle endGameExit = {481, 543, 222, 50};
 
-    //Pause Screen Buttons
+    // Pause Screen Buttons
     Rectangle pauseResume = {346, 547, 222, 50};
     Rectangle pauseExit = {636, 547, 222, 50};
 
@@ -164,7 +164,7 @@ int main() {
                     }
                 }
 
-            // no more scenes left, go to end screen
+            // no more scenes left
             } else {
                 currentScreen = END; // go to end screen
             }
