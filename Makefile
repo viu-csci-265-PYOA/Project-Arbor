@@ -14,7 +14,7 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-%.o: %.cpp %.h
+%.o: %.cpp %.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 .PHONY: clean
