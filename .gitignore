@@ -1,0 +1,17 @@
+# Project Arbor Github Ignore File
+
+# This is a file to persist empty directories:
+**/temp_file.txt
+
+# bin contains executables, so shouldn't saved:
+bin/**
+
+# This is team member's VS code setting:
+**/.vscode
+
+# Don't need this Windows metadata:
+**/*Zone.Identifier
+
+#
+src/*.o
+
