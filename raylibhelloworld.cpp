@@ -42,6 +42,8 @@ int main() {
     InitWindow(1200, 675, "Raylib Prototype");
     SetTargetFPS(60);
 
+    Font myFont = LoadFont("resource/arbor_font.ttf");
+
     // Load text scenes
     std::vector<std::string> scenes = loadTextScenes("resource/scenes.txt");
     int currentScene = 0;
@@ -139,7 +141,7 @@ int main() {
             // Only loop until scenes are exhausted
             if (currentScene < (int)scenes.size()) {
 
-                DrawText(scenes[currentScene].c_str(), 80, 120, 24, BLACK);
+                DrawTextEx(myFont, scenes[currentScene].c_str(), {80, 120}, 22, 2, BLACK);
 
                 // Two options for the player
                 // First option button
@@ -194,6 +196,7 @@ int main() {
     }
 
     // Unload resources and close window
+    UnloadFont(myFont);
     UnloadTexture(pauseMenu);
     UnloadTexture(endScreen);
     UnloadTexture(mainMenu);
