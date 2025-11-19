@@ -2,10 +2,10 @@
 
 # Variables:
 CXX = g++
-CXXFLAGS = -Wall -Wextra -g -Iinclude
+CXXFLAGS = -Wall -Wextra -g -Iinclude -L lib -lraylib -lgdi32 -lwinmm
 TARGET = ../../bin/raylibhelloworld.exe
-SRC = $(wildcard ../../raylibhelloworld.cpp)
-OBJECTS = $(SRC:.c=.o)
+SRC = $(wildcard *.cpp)
+OBJECTS = $(SRC:.cpp=.o)
 
 # Targets:
 .PHONY: all
@@ -14,7 +14,7 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-%.o: %.cpp %.hpp
+%.o: %.cpp ../../include/%.h
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 .PHONY: clean
