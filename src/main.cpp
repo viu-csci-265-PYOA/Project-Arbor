@@ -1,8 +1,8 @@
-#include "room.hpp"
-#include "gamestate.hpp"
-#include "action.hpp"
-#include "command.hpp"
-#include "savesystem.hpp"
+#include "../include/room.hpp"
+#include "../include/gamestate.hpp"
+#include "../include/action.hpp"
+#include "../include/command.hpp"
+#include "../include/savesystem.hpp"
  
 #include <vector>
 #include <iostream>
