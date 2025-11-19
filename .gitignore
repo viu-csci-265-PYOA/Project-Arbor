@@ -15,3 +15,5 @@ bin/**
 #
 src/*.o
 
+# Flagging save files, which are .bin's, but currently kept in resource/save
+resource/save/*.bin
