@@ -1,4 +1,4 @@
-#include "inventory.hpp"
+#include "../include/inventory.hpp"
 
 void Inventory::add_item(Item* new_item) {
     items.emplace_back(new_item);

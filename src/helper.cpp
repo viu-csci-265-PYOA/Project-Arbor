@@ -1,4 +1,4 @@
-#include "helper.hpp"
+#include "../include/helper.hpp"
 
 //was initially going to prompt the user for a, b, or c inputs.
 //decided to go with numbered options
