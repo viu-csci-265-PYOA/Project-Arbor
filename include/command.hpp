@@ -44,4 +44,28 @@ public:
     void execute() override;
 };
 
+class PauseCommand : public Command {
+private:
+    GameState* state;
+public:
+    PauseCommand(GameState* state) 
+        : state(state) {}
+
+    ~PauseCommand () {}
+
+    void execute() override;
+};
+
+class ResumeCommand : public Command {
+private:
+    GameState* state;
+public:
+    ResumeCommand(GameState* state) 
+        : state(state) {}
+
+    ~ResumeCommand () {}
+
+    void execute() override;
+};
+
 #endif

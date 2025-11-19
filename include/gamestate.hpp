@@ -8,6 +8,7 @@ class Room;
 enum stage {
     PLAYING,
     WIN,
+    PAUSE,
 };
 
 //pure data container to store general data about the game.
