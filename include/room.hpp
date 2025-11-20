@@ -2,6 +2,7 @@
 #define ARBOR_SRC_ROOM_H
 
 #include "action.hpp"
+#include "helper.hpp"
 
 #include <vector>
 #include <iostream>
@@ -19,10 +20,9 @@ private:
     std::string room_description;
 
     void print_options() const;
-    char option_input();
-    void choose_option(char choice);
     void print_desc() const;
 public:
+    static Action* pause;
     Room(std::string name, std::string desc) 
         : room_name(name), room_description(desc) {}
     ~Room() {};
@@ -34,8 +34,6 @@ public:
     std::string get_desc() const;
 
     void add_action(Action* new_action);
-    
-    
 };
 
 #endif

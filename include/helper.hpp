@@ -5,16 +5,11 @@
 
 #include <vector>
 
-
-//currently unused 
-//namespace with helper functions that could be used by multiple objects
+//namespace with helper functions that can be used by multiple objects
 namespace helper {
-
-bool check_choice_input(char input);
-char option_input();
-void choose_option(char choice, std::vector<Action*> options);
-
+    bool input_is_digit(char input);
+    char option_input();
+    void choose_option(char choice, std::vector<Action*> options);
 }
-
 
 #endif

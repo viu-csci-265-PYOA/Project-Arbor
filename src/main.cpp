@@ -3,6 +3,7 @@
 #include "../include/action.hpp"
 #include "../include/command.hpp"
 #include "../include/savesystem.hpp"
+#include "../include/menu.hpp"
  
 #include <vector>
 #include <iostream>
@@ -22,6 +23,15 @@ int main(int argc, char const *argv[])
 
     GameState* state = 
         save_system::load_object<GameState>(game_state_file_name);
+
+    //set up pausing system.
+    //every room will have share pause as a static member
+    PauseCommand* pause_cmd = new PauseCommand(state);
+    game_commands.emplace_back(pause_cmd);
+    Action* pause = new Action("Pause", pause_cmd);
+    game_actions.emplace_back(pause);
+    Room::pause = pause;
+    PauseMenu* pause_menu = new PauseMenu(state);
     
     //currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
@@ -81,8 +91,20 @@ int main(int argc, char const *argv[])
     room_3->add_action(hallway_dead_end);
 
     //game loop.
-    while(state->get_current_stage() == PLAYING) {
-        state->get_current_room()->enter();
+    while(state->get_current_stage() != WIN) { //while game is not ended
+        switch (state->get_current_stage())
+        {
+        case PLAYING:
+            state->get_current_room()->enter();
+            break;
+        
+        case PAUSE:
+            pause_menu->run();
+            break;
+
+        default:
+            break;
+        }
     }
 
     save_system::save_object<GameState>(state, game_state_file_name);
@@ -105,6 +127,7 @@ int main(int argc, char const *argv[])
         delete i;
     }
 
+    delete pause_menu;
     delete state;
 
     return 0;
