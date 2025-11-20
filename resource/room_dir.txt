@@ -1,2 +1,0 @@
-0 Dungeon resource/dungeon_narrative.txt resource/dungeon_options.txt
-1 Tavern resource/tavern_narrative.txt resource/tavern_options.txt
