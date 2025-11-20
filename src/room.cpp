@@ -1,5 +1,5 @@
-#include "room.hpp"
-#include "action.hpp"
+#include "../include/room.hpp"
+#include "../include/action.hpp"
 
 
 void Room::print_desc() const {std::cout << room_description << '\n';} 

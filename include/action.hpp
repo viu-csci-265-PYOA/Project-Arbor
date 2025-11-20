@@ -1,7 +1,6 @@
 #ifndef ARBOR_SRC_ACTION_H
 #define ARBOR_SRC_ACTION_H
 
-#include "gamestate.hpp"
 #include "command.hpp"
 
 #include <string>
