@@ -1,7 +1,7 @@
 #ifndef ARBOR_SRC_GAMESTATE_H
 #define ARBOR_SRC_GAMESTATE_H
 
-// #include "room.hpp"
+#include <iostream>
 
 class Room;
 
