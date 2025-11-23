@@ -7,6 +7,9 @@
 #include <vector>
 #include <iostream>
 
+//In progress updating room class and file reading so main does not currently
+//function in this branch
+
 int main(int argc, char const *argv[])
 {
     const std::string game_state_file_name =
