@@ -33,10 +33,15 @@ int main(int argc, char const *argv[])
     
     //currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
-    game_rooms.emplace_back(create_room(room_directory, state->get_current_room()->get_id()));
-
-    state->set_current_room();
-    state->set_current_stage(PLAYING);
+    if(){ //load game
+        game_rooms.emplace_back(
+        create_room(room_directory, state->get_current_room()->get_id()));
+    }else{ //new game
+        game_rooms.emplace_back(
+        create_room(room_directory, 0));
+        state->set_current_room(game_rooms[0]);
+        state->set_current_stage(PLAYING);
+    }
 
     //leave command only refers to the target room, so the name is important
     //  make clear what room each one is coming from.
