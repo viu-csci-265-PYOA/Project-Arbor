@@ -1,1 +1,16 @@
-I am the tavern narrative file!
+You weave your way through the shadows of a starlit city. There are few people 
+on the streets at this time of night, but you can see candlelight through many 
+windows.
+
+A ruckus further down the street draws your attention as three men spill out 
+into the road. They laugh, patting each other on the back as they drunkenly 
+walk away. The sign above their heads reads: the Great Oak Tavern. You wander 
+your way towards it, drawn by the noise and the promise of something to warm 
+yourself with.
+
+The tavern is a stark contrast to the street outside, filled to the brim with 
+people and lit with warm light cast from a large fireplace set against one 
+wall. In one corner a bard strums away at a lute, keeping the patrons 
+entertained.
+
+Do you approach the barkeep or attempt to listen to the gathered townsfolk?
