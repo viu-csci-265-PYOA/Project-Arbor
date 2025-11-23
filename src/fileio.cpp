@@ -1,4 +1,4 @@
-#include "fileio.hpp"
+#include "../include/fileio.hpp"
 
 void get_directory(std::vector<RoomInfo>& dir){
   std::ifstream input_read;
@@ -11,10 +11,11 @@ void get_directory(std::vector<RoomInfo>& dir){
   int no;
   std::string name;
   std::string desc;
-  std::string options;
+  int option1;
+  int option2;
   while(input_read >> no){
-    input_read >> name >> desc >> options;
-    dir.emplace_back(RoomInfo(no, name, desc, options));
+    input_read >> name >> desc >> option1 >> option2;
+    dir.emplace_back(RoomInfo(no, name, desc, option1, option2));
   }
 
   input_read.close();
@@ -48,3 +49,27 @@ std::string get_options(std::vector<RoomInfo>& dir, int choice){
 
   return options;
 }*/
+
+Room* create_room(std::vector<RoomInfo>& dir, int room_no){
+
+}
+
+int search_directory(std::vector<RoomInfo>& dir, int room_no){
+  int min = 0;
+  int max = dir.size();
+  int mid{}; 
+  while(min <= max){
+    mid = (min + max)/2;
+    if(dir[mid].get_room_no() == room_no){
+      return mid;
+    }else if(dir[mid].get_room_no() > room_no){
+      max = mid - 1;
+    }else{
+      min = mid + 1;
+    }
+  }
+
+  std::cout << "Room does not exist in directory.\n";
+  
+  return -1;
+}

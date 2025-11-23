@@ -19,7 +19,7 @@ private:
     std::string room_description;
     int option1;
     int option2;
-    //std::vector<Action*> options;
+    std::vector<Action*> options;
 
     void print_options() const;
     char option_input();
@@ -44,7 +44,8 @@ public:
 
     void add_action(Action* new_action);
     
-    
+    //implemented in fileio.cpp
+    friend Room* create_room(int room_no);
 };
 
 #endif
