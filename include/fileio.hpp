@@ -41,11 +41,9 @@ class RoomInfo{
 void get_directory(std::vector<RoomInfo>& dir);
 
 //Retrieves description for a particular room from a narrative file.
-std::string get_description(std::vector<RoomInfo>& dir, int choice);
+std::string get_description(RoomInfo room);
 
-//IN PROGRESS: Retrieves options for a particular room from a narrative file.
-//std::string get_options(std::vector<RoomInfo>& dir, int choice);
-
+//Binary searches the directory for the specific room.
 int search_directory(std::vector<RoomInfo>& dir, int room_no);
 
 #endif
