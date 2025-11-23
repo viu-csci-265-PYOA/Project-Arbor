@@ -38,14 +38,16 @@ public:
     void enter();
 
     //these are currently unused, but could be useful.
+    int get_id() const;
     std::string get_name() const;
     std::string get_desc() const;
     int get_opt(int choice) const;
 
     void add_action(Action* new_action);
     
-    //implemented in fileio.cpp
-    friend Room* create_room(int room_no);
+    //Creates a room given a room ID and returns the pointer to the room object.
+    friend class RoomInfo;
+    
 };
 
 #endif

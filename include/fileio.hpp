@@ -34,6 +34,7 @@ class RoomInfo{
     int get_options1(){ return _option1; }
     int get_options2(){ return _option2; }
 
+    
     friend class Room;
 };
 
@@ -45,5 +46,8 @@ std::string get_description(RoomInfo room);
 
 //Binary searches the directory for the specific room.
 int search_directory(std::vector<RoomInfo>& dir, int room_no);
+
+//Creates a room given a room ID and returns the pointer to the room object.
+Room* create_room(std::vector<RoomInfo>& dir, int room_no);
 
 #endif

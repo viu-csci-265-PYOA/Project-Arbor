@@ -1,5 +1,6 @@
 #include "../include/room.hpp"
 #include "../include/action.hpp"
+#include "../include/fileio.hpp"
 
 
 void Room::print_desc() const {std::cout << room_description << '\n';} 
@@ -54,6 +55,8 @@ void Room::enter() {
       std::cout << "dead end" << '\n';
     }
 }
+
+int Room::get_id() const {return room_id;}
 
 std::string Room::get_desc() const {return room_description;}
 

@@ -3,6 +3,7 @@
 #include "../include/action.hpp"
 #include "../include/command.hpp"
 #include "../include/savesystem.hpp"
+#include "../include/fileio.hpp"
  
 #include <vector>
 #include <iostream>
@@ -22,26 +23,19 @@ int main(int argc, char const *argv[])
     std::vector<Room*> game_rooms;
     std::vector<Command*> game_commands;
     std::vector<Action*> game_actions;
+    
+    //load room directory info from file
+    std::vector<RoomInfo> room_directory;
+    get_directory(room_directory);
 
     GameState* state = 
         save_system::load_object<GameState>(game_state_file_name);
     
     //currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
-    Room* room_1 = new Room(
-        "Dungeon Cell", "a musty cell in a rotten dungeon."
-    );
-    game_rooms.emplace_back(room_1);
-    Room* room_2 = new Room(
-        "stairway", "an ancient stairway leading up."
-    );
-    game_rooms.emplace_back(room_2);
-    Room* room_3 = new Room(
-        "hallway", "a decrepit hallway."
-    );
-    game_rooms.emplace_back(room_3);
+    game_rooms.emplace_back(create_room(room_directory, state->get_current_room()->get_id()));
 
-    state->set_current_room(room_1);
+    state->set_current_room();
     state->set_current_stage(PLAYING);
 
     //leave command only refers to the target room, so the name is important
