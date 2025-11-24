@@ -23,7 +23,7 @@ int main(int argc, char const *argv[])
     std::vector<Room*> game_rooms;
     std::vector<Command*> game_commands;
     std::vector<Action*> game_actions;
-    
+
     //load room directory info from file
     std::vector<RoomInfo> room_directory;
     get_directory(room_directory);
@@ -33,15 +33,15 @@ int main(int argc, char const *argv[])
     
     //currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
-    if(){ //load game
-        game_rooms.emplace_back(
-        create_room(room_directory, state->get_current_room()->get_id()));
-    }else{ //new game
-        game_rooms.emplace_back(
-        create_room(room_directory, 0));
-        state->set_current_room(game_rooms[0]);
-        state->set_current_stage(PLAYING);
-    }
+    Room* room_1 = create_room(room_directory, 0);
+    game_rooms.emplace_back(room_1);
+    Room* room_2 = create_room(room_directory, 1);
+    game_rooms.emplace_back(room_2);
+    Room* room_3 = create_room(room_directory, 2);
+    game_rooms.emplace_back(room_3);
+
+    state->set_current_room(room_1);
+    state->set_current_stage(PLAYING);
 
     //leave command only refers to the target room, so the name is important
     //  make clear what room each one is coming from.
