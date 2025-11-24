@@ -15,13 +15,15 @@ class RoomInfo{
     int _no;
     std::string _name;
     std::string _desc;
-    std::string _options;
+    int _option1;
+    int _option2;
   public:
-    RoomInfo(int no, std::string name, std::string desc, std::string options): 
+    RoomInfo(int no, std::string name, std::string desc, int opt1, int opt2): 
       _no(no),
       _name(name),
       _desc(desc),
-      _options(options) {
+      _option1(opt1),
+      _option2(opt2) {
     }
 
     ~RoomInfo(){}
@@ -29,8 +31,10 @@ class RoomInfo{
     int get_room_no(){ return _no; }
     std::string get_room_name(){ return _name; }
     std::string get_desc_file(){ return _desc; }
-    std::string get_options_file(){ return _options; }
+    int get_options1(){ return _option1; }
+    int get_options2(){ return _option2; }
 
+    
     friend class Room;
 };
 
@@ -38,9 +42,12 @@ class RoomInfo{
 void get_directory(std::vector<RoomInfo>& dir);
 
 //Retrieves description for a particular room from a narrative file.
-std::string get_description(std::vector<RoomInfo>& dir, int choice);
+std::string get_description(RoomInfo room);
 
-//IN PROGRESS: Retrieves options for a particular room from a narrative file.
-//std::string get_options(std::vector<RoomInfo>& dir, int choice);
+//Binary searches the directory for the specific room.
+int search_directory(std::vector<RoomInfo>& dir, int room_no);
+
+//Creates a room given a room ID and returns the pointer to the room object.
+Room* create_room(std::vector<RoomInfo>& dir, int room_no);
 
 #endif
