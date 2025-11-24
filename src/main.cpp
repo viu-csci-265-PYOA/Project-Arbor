@@ -4,9 +4,11 @@
 #include "../include/command.hpp"
 #include "../include/character.hpp"
 #include "../include/savesystem.hpp"
-
+#include "../include/fileio.hpp"
+ 
 #include <vector>
 #include <iostream>
+
 
 int main(int argc, char const *argv[])
 {
@@ -22,24 +24,20 @@ int main(int argc, char const *argv[])
     std::vector<Action*> game_actions;
     std::vector<Item*> game_items;
 
-    Character* player = new Character;
-    Inventory* inventory = new Inventory;
+    //load room directory info from file
+    std::vector<RoomInfo> room_directory;
+    get_directory(room_directory);
+
     GameState* state = 
         save_system::load_object<GameState>(game_state_file_name);
     
     //currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
-    Room* room_1 = new Room(
-        "Dungeon Cell", "a musty cell in a rotten dungeon."
-    );
+    Room* room_1 = create_room(room_directory, 0);
     game_rooms.emplace_back(room_1);
-    Room* room_2 = new Room(
-        "stairway", "an ancient stairway leading up."
-    );
+    Room* room_2 = create_room(room_directory, 1);
     game_rooms.emplace_back(room_2);
-    Room* room_3 = new Room(
-        "hallway", "a decrepit hallway."
-    );
+    Room* room_3 = create_room(room_directory, 2);
     game_rooms.emplace_back(room_3);
     Room* room_4 = new Room("treasure trove", "a hoard of gleaming jewels.");
 
