@@ -6,6 +6,5 @@
 namespace helper {
     
 bool check_choice_input(char input) {}
-
 }
 #endif
