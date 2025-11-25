@@ -28,6 +28,11 @@ int main(int argc, char const *argv[])
     std::vector<RoomInfo> room_directory;
     get_directory(room_directory);
 
+    //build rooms and emplace in game_rooms vector
+    for(RoomInfo room : room_directory){
+        game_rooms.emplace_back(create_room(room_directory, room.get_room_no()));
+    }
+
     GameState* state = 
         save_system::load_object<GameState>(game_state_file_name);
     
