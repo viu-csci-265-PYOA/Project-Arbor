@@ -55,7 +55,7 @@ Room* create_room(std::vector<RoomInfo>& dir, int room_no);
 
 //Creates Action pointer for add_action to be used after directory, rooms,
 //and character declaration
-Action* create_action(Room* room, Character* player);
+Action* create_action(Room* room, Character* player, GameState* state);
 
 
 
