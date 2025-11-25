@@ -44,7 +44,7 @@ int main() {
     InitWindow(1200, 675, "Raylib Prototype");
     SetTargetFPS(60);
 
-    Font myFont = LoadFont("resource/arbor_font.ttf");
+    Font myFont = LoadFont("resource/Alice.ttf");
 
     // Load text scenes
     std::vector<std::string> scenes = loadTextScenes("resource/narrative/lvl2_tavern/rm13.txt");
@@ -57,7 +57,7 @@ int main() {
     Buttons b = InitButtons();
 
     // Game Screen Management
-    enum Screen { MENU, PAUSE, GAMEPLAY, END };
+    enum Screen { MENU, PAUSE, NEXT, GAMEPLAY, END };
     Screen currentScreen = MENU;
 
     // -----------------------------
@@ -78,7 +78,7 @@ int main() {
             // Button: Start Game
             if (CheckCollisionPointRec(mousePoint, b.menuStartGame)) {
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
-                    currentScreen = GAMEPLAY; // go to next scene
+                    currentScreen = NEXT; // go to next scene
                 }
             }
 
@@ -128,7 +128,7 @@ int main() {
             // Only loop until scenes are exhausted
             if (currentScene < (int)scenes.size()) {
 
-                DrawTextEx(myFont, scenes[currentScene].c_str(), {80, 120}, 22, 2, BLACK);
+                DrawTextEx(myFont, scenes[currentScene].c_str(), {80, 105}, 25, 2, BLACK);
 
                 // Two options for the player
                 // First option button
@@ -156,6 +156,19 @@ int main() {
             // no more scenes left
             } else {
                 currentScreen = END; // go to end screen
+            }
+
+
+        } else if (currentScreen == NEXT) {
+            // Placeholder for next screen
+            DrawTexture(t.nextScreen, 0, 0, WHITE);
+
+            DrawTextEx(myFont, scenes[currentScene].c_str(), {80, 80}, 25, 2, BLACK);
+
+            if (CheckCollisionPointRec(mousePoint, b.nextButton)) {
+                if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+                    currentScreen = GAMEPLAY; // go back to main menu
+                }
             }
 
 
@@ -188,6 +201,7 @@ int main() {
     UnloadTexture(t.endScreen);
     UnloadTexture(t.mainMenu);
     UnloadTexture(t.gameplayScreen);
+    UnloadTexture(t.nextScreen);
     CloseWindow();
     
     return 0;

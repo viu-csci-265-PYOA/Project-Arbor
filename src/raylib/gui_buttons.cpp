@@ -11,9 +11,11 @@ Buttons InitButtons() {
     b.endGameExit = {481, 543, 222, 50};
 
     // Gameplay Screen Buttons
-    b.option1Button = {72, 514, 423, 75};
-    b.option2Button = {705, 514, 423, 75};
+    b.option1Button = {71, 553, 424, 76};
+    b.option2Button = {705, 553, 424, 76};
     b.menuButton = {70, 32, 220, 55};
+
+    b.nextButton = {908, 583, 222, 50};
 
     // Pause Screen Buttons
     b.pauseResume = {346, 547, 222, 50};
@@ -27,6 +29,7 @@ Textures LoadTextures() {
     t.mainMenu = LoadTexture("resource/mainMenu.png");
     t.gameplayScreen = LoadTexture("resource/gameplayScreen.png");
     t.pauseMenu = LoadTexture("resource/pauseMenu.png");
+    t.nextScreen = LoadTexture("resource/nextScreen.png");
     t.endScreen = LoadTexture("resource/endScreen.png");
     return t;
 }

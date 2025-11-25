@@ -15,6 +15,8 @@ struct Buttons {
     Rectangle option2Button;
     Rectangle menuButton;
 
+    Rectangle nextButton;
+
     // Pause Screen Buttons
     Rectangle pauseResume;
     Rectangle pauseExit;
@@ -26,6 +28,7 @@ struct Textures {
     Texture2D gameplayScreen;
     Texture2D pauseMenu;
     Texture2D endScreen;
+    Texture2D nextScreen;
 };
 
 Buttons InitButtons();
