@@ -20,7 +20,7 @@ std::vector<std::string> loadTextScenes(const std::string& filename) {
     std::string line;
 
     while (std::getline(file, line)) {
-        if (line.empty()) {
+        if (file.eof()) {
             scenes.push_back(temp.str());
             temp.str("");
             temp.clear();
@@ -47,7 +47,7 @@ int main() {
     Font myFont = LoadFont("resource/arbor_font.ttf");
 
     // Load text scenes
-    std::vector<std::string> scenes = loadTextScenes("resource/scenes.txt");
+    std::vector<std::string> scenes = loadTextScenes("resource/narrative/lvl2_tavern/rm13.txt");
     int currentScene = 0;
 
     // Load resources
