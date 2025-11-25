@@ -36,6 +36,17 @@ int main(int argc, char const *argv[])
     GameState* state = 
         save_system::load_object<GameState>(game_state_file_name);
     
+    Character* player = 
+        save_system::load_object<Character>(game_state_file_name);
+    
+    //adding actions to each game room
+    for(Room* room : game_rooms){
+        Room* action1 = search_directory(game_rooms, room->get_opt(1));
+        room->add_action(create_action(action1, player));
+        Room* action2 = search_directory(game_rooms, room->get_opt(2));
+        room->add_action(create_action(action2, player));
+    }
+
     //currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
     Room* room_1 = create_room(room_directory, 0);
