@@ -47,11 +47,16 @@ std::string get_description(RoomInfo room);
 //Binary searches the directory for the specific room.
 int search_directory(std::vector<RoomInfo>& dir, int room_no);
 
+//Binary searches game rooms for a particular room.
+Room* search_directory(std::vector<Room*>& game_rooms, int room_no);
+
 //Creates a room given a room ID and returns the pointer to the room object.
 Room* create_room(std::vector<RoomInfo>& dir, int room_no);
 
 //Creates Action pointer for add_action to be used after directory, rooms,
 //and character declaration
 Action* create_action(Room* room, Character* player);
+
+
 
 #endif

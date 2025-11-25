@@ -78,3 +78,23 @@ int search_directory(std::vector<RoomInfo>& dir, int room_no){
   
   return -1;
 }
+
+Room* search_directory(std::vector<Room*>& game_rooms, int room_no){
+  int min = 0;
+  int max = game_rooms.size();
+  int mid{}; 
+  while(min <= max){
+    mid = (min + max)/2;
+    if(game_rooms[mid]->get_id() == room_no){
+      return game_rooms[mid];
+    }else if(game_rooms[mid]->get_id() > room_no){
+      max = mid - 1;
+    }else{
+      min = mid + 1;
+    }
+  }
+
+  std::cout << "Room does not exist in directory.\n";
+  
+  return nullptr;
+}
