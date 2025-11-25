@@ -47,7 +47,7 @@ int main(int argc, char const *argv[])
         room->add_action(create_action(action2, player));
     }
 
-    //currently hardcoding the room names and descriptions
+    /*//currently hardcoding the room names and descriptions
     //TODO: system to fetch this data from a txt file.
     Room* room_1 = create_room(room_directory, 0);
     game_rooms.emplace_back(room_1);
@@ -56,11 +56,11 @@ int main(int argc, char const *argv[])
     Room* room_3 = create_room(room_directory, 2);
     game_rooms.emplace_back(room_3);
     Room* room_4 = new Room("treasure trove", "a hoard of gleaming jewels.");
-
-    player->set_current_room(room_1);
+    */
+    player->set_current_room(game_rooms[0]);
     state->set_current_state(PLAYING);
 
-    //leave command only refers to the target room, so the name is important
+    /*//leave command only refers to the target room, so the name is important
     //  make clear what room each one is coming from.
     Command* r1_to_r2 = new LeaveCommand(room_2, player);
     game_commands.emplace_back(r1_to_r2);
@@ -126,7 +126,8 @@ int main(int argc, char const *argv[])
     room_2->add_action(stairway_dead_end);
     room_3->add_action(hallway_dead_end);
     room_4->add_action(trove_dead_end);
-
+    */
+   
     //game loop.
     while(state->get_current_state() == PLAYING) {
         player->get_current_room()->enter();
