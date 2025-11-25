@@ -52,6 +52,13 @@ Room* create_room(std::vector<RoomInfo>& dir, int room_no){
   return new_room;
 }
 
+Action* create_action(Room* room, Character* player){
+  Command* new_command = new LeaveCommand(room, player);
+  Action* new_action = new Action(room->get_name(), new_command);
+
+  return new_action;
+}
+
 int search_directory(std::vector<RoomInfo>& dir, int room_no){
   int min = 0;
   int max = dir.size();
