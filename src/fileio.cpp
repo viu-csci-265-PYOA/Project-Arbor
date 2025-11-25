@@ -1,8 +1,8 @@
-#include "fileio.hpp"
+#include "../include/fileio.hpp"
 
 void get_directory(std::vector<RoomInfo>& dir){
   std::ifstream input_read;
-  input_read.open("resource/room_dir.txt");
+  input_read.open("resource/narrative/room_dir.txt");
   if(!input_read.is_open()){
     std::cout << "Unable to access room directory resource folder.\n";
     std::exit(-1);
@@ -11,17 +11,18 @@ void get_directory(std::vector<RoomInfo>& dir){
   int no;
   std::string name;
   std::string desc;
-  std::string options;
+  int option1;
+  int option2;
   while(input_read >> no){
-    input_read >> name >> desc >> options;
-    dir.emplace_back(RoomInfo(no, name, desc, options));
+    input_read >> name >> desc >> option1 >> option2;
+    dir.emplace_back(RoomInfo(no, name, desc, option1, option2));
   }
 
   input_read.close();
 }
 
-std::string get_description(std::vector<RoomInfo>& dir, int choice){
-  std::string desc_file = dir[choice].get_desc_file();
+std::string get_description(RoomInfo room){
+  std::string desc_file = room.get_desc_file();
   std::ifstream fetch_desc(desc_file);
   if(!fetch_desc.is_open()){
     std::cout << "Unable to access room description resource folder.\n";
@@ -35,16 +36,38 @@ std::string get_description(std::vector<RoomInfo>& dir, int choice){
   return desc;
 }
 
-/*
-std::string get_options(std::vector<RoomInfo>& dir, int choice){
-  std::ifstream fetch_options(dir[choice].get_options_file());
-  if(!fetch_options.is_open()){
-    std::cout << "Unable to access room description resource folder.\n";
-    std::exit(-1);
+Room* create_room(std::vector<RoomInfo>& dir, int room_no){
+  int index = search_directory(dir, room_no);
+  if(index == -1){
+    std::cout << "Unable to create room, invalid index.\n";
+    return nullptr;
   }
-  std::string options;
-  std::getline(fetch_options, options, (char)std::char_traits<char>::eof());
-  fetch_options.close();
+  
+  Room* new_room = new Room(
+    room_no, dir[index].get_room_name(), 
+    get_description(dir[index]), 
+    dir[index].get_options1(), 
+    dir[index].get_options2());
+  
+  return new_room;
+}
 
-  return options;
-}*/
+int search_directory(std::vector<RoomInfo>& dir, int room_no){
+  int min = 0;
+  int max = dir.size();
+  int mid{}; 
+  while(min <= max){
+    mid = (min + max)/2;
+    if(dir[mid].get_room_no() == room_no){
+      return mid;
+    }else if(dir[mid].get_room_no() > room_no){
+      max = mid - 1;
+    }else{
+      min = mid + 1;
+    }
+  }
+
+  std::cout << "Room does not exist in directory.\n";
+  
+  return -1;
+}
