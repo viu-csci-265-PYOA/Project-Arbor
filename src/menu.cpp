@@ -1,5 +1,7 @@
 #include "../include/menu.hpp"
 
+//since the pause menu's options are static,
+//all of it is just created in the constructor.
 PauseMenu::PauseMenu(GameState* game_state) {
     state = game_state;
 
@@ -14,6 +16,7 @@ PauseMenu::PauseMenu(GameState* game_state) {
     options.emplace_back(exit_game);
 }
 
+//destructor loops through all the stuff created in the constructor
 PauseMenu::~PauseMenu() {
     for(auto i: options) {
         delete i;
@@ -23,6 +26,7 @@ PauseMenu::~PauseMenu() {
     }
 }
 
+//print pause menu formatted nicely
 void PauseMenu::print() const {
     std::cout << "PAUSED\n";
     if(options.size() >= 1) {
@@ -34,6 +38,8 @@ void PauseMenu::print() const {
     }
 }
 
+//runs the pausemenu logic.
+//gets and checks input.
 void PauseMenu::run() {
     print();
     char choice = helper::option_input();
