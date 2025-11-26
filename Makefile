@@ -5,7 +5,7 @@ CXX = g++
 CXXFLAGS = -Wall -Wextra -g -Iinclude
 TARGET = bin/arbor.exe
 SRC = $(wildcard src/*.cpp)
-OBJECTS = $(SRC:.c=.o)
+OBJECTS = $(SRC:.cpp=.o)
 
 # Targets:
 .PHONY: all
@@ -14,7 +14,7 @@ all: $(TARGET)
 $(TARGET): $(OBJECTS)
 	$(CXX) $(CXXFLAGS) $^ -o $@
 
-%.o: %.cpp %.hpp
+./src/%.o: ./src/%.cpp ./include/%.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
 .PHONY: clean
