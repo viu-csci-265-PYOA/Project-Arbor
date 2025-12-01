@@ -10,7 +10,7 @@ int main() {
     // Initialize window
     const int screenWidth = 1200;
     const int screenHeight = 675;
-    InitWindow(screenWidth, screenHeight, "Narrative Game");
+    InitWindow(screenWidth, screenHeight, "Arbor");
     SetTargetFPS(60);
 
     // Create GameManager

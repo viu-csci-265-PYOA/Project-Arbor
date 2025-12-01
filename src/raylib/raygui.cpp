@@ -19,39 +19,50 @@ GameManager::GameManager() {
    
 }
 
+
+
+// Wrap text to fit within the text box width
+// Returns a vector of strings, each representing a line
 std::vector<std::string> GameManager::WrapText(const std::string& text, float fontSize) {
     std::vector<std::string> wrappedLines;
     std::istringstream stream(text);
     std::string line;
 
     while (std::getline(stream, line)) {
+
         if (line.empty()) {
             // preserve an empty line if paragraph gap is intended
             wrappedLines.push_back("");
             continue;
         }
 
+        // Process each word in the line
         std::string currentLine;
         std::istringstream wordStream(line);
         std::string word;
 
+        // Build lines word by word
         while (wordStream >> word) {
             std::string testLine = currentLine.empty() ? word : currentLine + " " + word;
             float width = MeasureTextEx(font, testLine.c_str(), fontSize, 2).x;
 
+            // If the test line fits, update current line
             if (width <= textBox.width) {
                 currentLine = testLine;
-            } else {
+            } else { // Otherwise, push current line and start a new one
                 if (!currentLine.empty()) wrappedLines.push_back(currentLine);
                 currentLine = word;
             }
         }
 
+        // Push any remaining text in current line
         if (!currentLine.empty()) wrappedLines.push_back(currentLine);
     }
 
     return wrappedLines;
 }
+
+
 
 // Draw the current game state
 // Renders menu, gameplay, or end screen based on current state
@@ -74,6 +85,7 @@ void GameManager::Draw() {
             if (!room) break;
             DrawTexture(gameplayScreen, 0, 0, WHITE);
 
+            // Handles text rendering with scrolling
             std::vector<std::string> lines = WrapText(room->description, 25);
             float yOffset = textBox.y + textScrollY;
             float lineHeight = 30.0f;
@@ -86,10 +98,11 @@ void GameManager::Draw() {
                 yOffset += lineHeight;
             }
             EndScissorMode();
+            //--------------------------------------
+
             break;
         }
 
-    
         // -------- END SCREEN --------
         case GameState::END: {
             DrawTexture(endScreen, 0, 0, WHITE);
@@ -99,6 +112,7 @@ void GameManager::Draw() {
 
     EndDrawing();
 }
+
 
 
 // Update the game state based on user input
@@ -114,7 +128,7 @@ void GameManager::Update() {
             
             switch (opt) {
                 case ButtonManager::MenuOption::START:
-                    currentRoom = 0;
+                    currentRoom = 0; // reset to first room
                     currentState = GAMEPLAY; 
                     break;
 
@@ -140,20 +154,18 @@ void GameManager::Update() {
             
             if (!room) break;
 
-            // -----------------------
-            // Handle text scrolling
-
+            // ------- TEXT SCROLLING -------
             std::vector<std::string> lines = WrapText(room->description, 25);
             float lineHeight = 30.0f;
             float textHeight = lines.size() * lineHeight;
 
             // SCROLL WITH MOUSE WHEEL
-            float mouseWheel = GetMouseWheelMove();  // RETURNS +1 or -1 usually
+            float mouseWheel = GetMouseWheelMove();
             if (mouseWheel != 0.0f) {
                 textScrollY += mouseWheel * scrollSpeed;   // Multiply for speed
             }
 
-            // Manual scrolling
+            // SCROLL WITH KEYBOARD
             if (IsKeyDown(KEY_DOWN)) textScrollY -= 5.0f; // move text up
             if (IsKeyDown(KEY_UP)) textScrollY += 5.0f;   // move text down
 
@@ -165,8 +177,9 @@ void GameManager::Update() {
                 textScrollY = 0; // no scrolling needed
             }
         
+            // -------- PROCESS GAMEPLAY OPTIONS --------
             ButtonManager::GameOption opt = buttons.checkGameInput();
-            // Handle gameplay options
+            
             switch (opt) { 
                 // -------- OPTION 1 --------
                 case ButtonManager::GameOption::OPTION_A:
@@ -224,6 +237,7 @@ void GameManager::Update() {
 }
 
 
+
 // Load rooms from a file
 void GameManager::LoadRoomsFromFile(const std::string& filename) {
     rooms.loadRooms(filename);
@@ -233,19 +247,20 @@ void GameManager::LoadRoomsFromFile(const std::string& filename) {
 
 // Get the current room object
 bool RoomManager::loadRooms(const std::string& filename) {
-    // Implementation for loading rooms from a file
+
     std::ifstream file(filename);
 
     if (!file.is_open()) return false;
 
     std::string line;
     while (std::getline(file, line)) {
-        
+    
         std::stringstream ss(line);
         Room r;
         std::string descPath;
         ss >> r.index >> r.name >> descPath >> r.option1 >> r.option2;
         
+        // Load rooms description from file
         std::ifstream descFile(descPath);
         r.description.clear();
             if (descFile.is_open()) {
@@ -261,6 +276,7 @@ bool RoomManager::loadRooms(const std::string& filename) {
 }
 
 
+
 // Get a pointer to a room by index
 const Room* RoomManager::getRoom(int index) const {
     for (const Room& r : rooms) {
@@ -270,6 +286,7 @@ const Room* RoomManager::getRoom(int index) const {
 }
 
 
+
 // Get the texture for a room by index
 Texture2D RoomManager::getRoomTexture(int index) const {
     for (size_t i = 0; i < rooms.size(); i++) {
@@ -277,6 +294,7 @@ Texture2D RoomManager::getRoomTexture(int index) const {
     }
     return {};
 }
+
 
 
 // Destructor to unload textures

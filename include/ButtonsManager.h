@@ -47,12 +47,11 @@ public:
                 return MenuOption::CONTINUE;
             } else if (CheckCollisionPointRec(mouse, menuExitGame)) {
                 return MenuOption::EXIT;
-            } else if (CheckCollisionPointRec(mouse, endGameExit)) {
-                return MenuOption::EXIT;
             } 
         }
         return MenuOption::NONE;
     }
+    
     
     /* -- GAMEPLAY SCREEN INPUT --
     * Returns which gameplay option was selected 
@@ -71,6 +70,7 @@ public:
         }
         return GameOption::NONE;
     }
+
 
     /* -- END SCREEN INPUT --
     * Returns which end screen option was selected 
