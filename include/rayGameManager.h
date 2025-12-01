@@ -6,6 +6,10 @@
 // GAME STATES
 enum GameState {MENU, GAMEPLAY, OPTIONS, END};
 
+struct TextBox {
+    float x, y, width, height;
+};
+
 // Game Manager Class
 // Manages game state, rooms, buttons, and rendering
 class GameManager {
@@ -18,10 +22,16 @@ class GameManager {
     ButtonManager buttons;
 
     float textScrollY = 0.0f;   // Scroll offset for manual scrolling
-    float scrollSpeed = 10.0f;   // Speed of scrolling
+    float scrollSpeed = 15.0f;   // Speed of scrolling
    
+    // Text box for displaying room descriptions
+    TextBox textBox;
+
     public: 
     Font font;
+
+    // Utility function to wrap text into lines based on a given size
+    std::vector<std::string> WrapText(const std::string& text, float fontSize);
 
     // Textures for different screens
     Texture2D menuBg;

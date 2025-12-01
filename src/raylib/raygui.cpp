@@ -14,7 +14,43 @@ GameManager::GameManager() {
     rooms.loadRooms("resource/room_dir.txt");
 
     font = LoadFont("resource/Alice.ttf");
+
+    textBox = {80, 100, 930, 420};
    
+}
+
+std::vector<std::string> GameManager::WrapText(const std::string& text, float fontSize) {
+    std::vector<std::string> wrappedLines;
+    std::istringstream stream(text);
+    std::string line;
+
+    while (std::getline(stream, line)) {
+        if (line.empty()) {
+            // preserve an empty line if paragraph gap is intended
+            wrappedLines.push_back("");
+            continue;
+        }
+
+        std::string currentLine;
+        std::istringstream wordStream(line);
+        std::string word;
+
+        while (wordStream >> word) {
+            std::string testLine = currentLine.empty() ? word : currentLine + " " + word;
+            float width = MeasureTextEx(font, testLine.c_str(), fontSize, 2).x;
+
+            if (width <= textBox.width) {
+                currentLine = testLine;
+            } else {
+                if (!currentLine.empty()) wrappedLines.push_back(currentLine);
+                currentLine = word;
+            }
+        }
+
+        if (!currentLine.empty()) wrappedLines.push_back(currentLine);
+    }
+
+    return wrappedLines;
 }
 
 // Draw the current game state
@@ -38,9 +74,18 @@ void GameManager::Draw() {
             if (!room) break;
             DrawTexture(gameplayScreen, 0, 0, WHITE);
 
-            // Draw room text with manual scroll
-            Vector2 textPos = {80, 105 + textScrollY};
-            DrawTextEx(font, room->description.c_str(), textPos, 25, 2, BLACK);
+            std::vector<std::string> lines = WrapText(room->description, 25);
+            float yOffset = textBox.y + textScrollY;
+            float lineHeight = 30.0f;
+
+            BeginScissorMode(textBox.x, textBox.y, textBox.width, textBox.height);
+            for (const std::string& line : lines) {
+                if (yOffset + lineHeight < textBox.y) { yOffset += lineHeight; continue; }
+                if (yOffset > textBox.y + textBox.height) break;
+                DrawTextEx(font, line.c_str(), {textBox.x, yOffset}, 25, 2, BLACK);
+                yOffset += lineHeight;
+            }
+            EndScissorMode();
             break;
         }
 
@@ -98,25 +143,29 @@ void GameManager::Update() {
             // -----------------------
             // Handle text scrolling
 
-            // Mouse wheel: invert direction
-            float wheel = GetMouseWheelMove();
-            textScrollY += wheel * scrollSpeed;
+            std::vector<std::string> lines = WrapText(room->description, 25);
+            float lineHeight = 30.0f;
+            float textHeight = lines.size() * lineHeight;
 
-            // Keyboard scroll: invert
-            if (IsKeyDown(KEY_DOWN)) textScrollY += scrollSpeed; // down moves text down
-            if (IsKeyDown(KEY_UP)) textScrollY -= scrollSpeed;   // up moves text up
+            // SCROLL WITH MOUSE WHEEL
+            float mouseWheel = GetMouseWheelMove();  // RETURNS +1 or -1 usually
+            if (mouseWheel != 0.0f) {
+                textScrollY += mouseWheel * scrollSpeed;   // Multiply for speed
+            }
 
-            // Clamp scrolling: top
-            if (textScrollY > 0) textScrollY = 0;
+            // Manual scrolling
+            if (IsKeyDown(KEY_DOWN)) textScrollY -= 5.0f; // move text up
+            if (IsKeyDown(KEY_UP)) textScrollY += 5.0f;   // move text down
 
-            // Clamp scrolling: bottom
-            float textHeight = MeasureTextEx(font, room->description.c_str(), 25, 2).y;
-            float maxScroll = 600 - 105 - textHeight - 20;
-            if (textScrollY < maxScroll) textScrollY = maxScroll;
-            // -----------------------
-            
+            // Clamp scrolling
+            if (textHeight > textBox.height) {
+                if (textScrollY < textBox.height - textHeight) textScrollY = textBox.height - textHeight;
+                if (textScrollY > 0) textScrollY = 0;
+            } else {
+                textScrollY = 0; // no scrolling needed
+            }
+        
             ButtonManager::GameOption opt = buttons.checkGameInput();
-
             // Handle gameplay options
             switch (opt) { 
                 // -------- OPTION 1 --------
