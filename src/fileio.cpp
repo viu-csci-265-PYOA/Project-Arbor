@@ -52,6 +52,20 @@ Room* create_room(std::vector<RoomInfo>& dir, int room_no){
   return new_room;
 }
 
+Action* create_action(Room* room, Character* player, GameState* state){
+  Command* new_command = nullptr;
+  Action* new_action = nullptr;
+  if(!room){
+    new_command = new EndCommand(state);
+    new_action = new Action("Dead End", new_command);
+  }else{
+    new_command = new LeaveCommand(room, player);
+    new_action = new Action(room->get_name(), new_command);
+  } 
+
+  return new_action;
+}
+
 int search_directory(std::vector<RoomInfo>& dir, int room_no){
   int min = 0;
   int max = dir.size();
@@ -66,8 +80,24 @@ int search_directory(std::vector<RoomInfo>& dir, int room_no){
       min = mid + 1;
     }
   }
-
-  std::cout << "Room does not exist in directory.\n";
   
   return -1;
+}
+
+Room* search_directory(std::vector<Room*>& game_rooms, int room_no){
+  int min = 0;
+  int max = game_rooms.size();
+  int mid{}; 
+  while(min <= max){
+    mid = (min + max)/2;
+    if(game_rooms[mid]->get_id() == room_no){
+      return game_rooms[mid];
+    }else if(game_rooms[mid]->get_id() > room_no){
+      max = mid - 1;
+    }else{
+      min = mid + 1;
+    }
+  }
+  
+  return nullptr;
 }
