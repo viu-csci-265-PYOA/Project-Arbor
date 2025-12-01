@@ -12,6 +12,7 @@
 
 // Function to load text scenes from a file
 // Super rough and need a real solution for larger scale 
+/*
 std::vector<std::string> loadTextScenes(const std::string& filename) {
     
     std::ifstream file(filename);
@@ -34,6 +35,7 @@ std::vector<std::string> loadTextScenes(const std::string& filename) {
 
     return scenes;
 }
+    */
 
 // ---------
 // MAIN
@@ -47,7 +49,7 @@ int main() {
     Font myFont = LoadFont("resource/Alice.ttf");
 
     // Load text scenes
-    std::vector<std::string> scenes = loadTextScenes("resource/narrative/lvl2_tavern/rm13.txt");
+   // std::vector<std::string> scenes = loadTextScenes("resource/narrative/lvl2_tavern/rm13.txt");
     int currentScene = 0;
 
     // Load resources
@@ -126,9 +128,10 @@ int main() {
             DrawTexture(t.gameplayScreen, 0, 0, WHITE);
 
             // Only loop until scenes are exhausted
-            if (currentScene < (int)scenes.size()) {
+            //if (currentScene < (int)scenes.size()) {
+            if (currentScene) {
 
-                DrawTextEx(myFont, scenes[currentScene].c_str(), {80, 105}, 25, 2, BLACK);
+                //DrawTextEx(myFont, scenes[currentScene].c_str(), {80, 105}, 25, 2, BLACK);
 
                 // Two options for the player
                 // First option button
@@ -163,7 +166,7 @@ int main() {
             // Placeholder for next screen
             DrawTexture(t.nextScreen, 0, 0, WHITE);
 
-            DrawTextEx(myFont, scenes[currentScene].c_str(), {80, 80}, 25, 2, BLACK);
+            //DrawTextEx(myFont, scenes[currentScene].c_str(), {80, 80}, 25, 2, BLACK);
 
             if (CheckCollisionPointRec(mousePoint, b.nextButton)) {
                 if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {

@@ -1,74 +1,9 @@
-#ifndef BUTTONS_H
-#define BUTTONS_H
-#include "raylib.h"
-#include <vector>
-#include <string>
-#include <fstream>
-#include <sstream>
-
-enum GameState {MENU, GAMEPLAY, OPTIONS, END};
-
-
-struct Room {
-    int index;
-    std::string name;
-    std::string descPath;
-    std::string description;
-    int option1;
-    int option2;
-};
-
-class GameManager {
-    private:
-    GameState currentState;
-    int currentRoom;
-
-    RoomManager rooms;
-    ButtonManager buttons;
-    Font font;
-
-    // Textures for different screens
-    Texture2D menuBg;
-    Texture2D gameplayScreen;
-    Texture2D endScreen;
-    //Texture2D nextScreen;
-
-    public: 
-    GameManager();
-
-    void Update();
-    void Draw();
-
-    GameState getCurrentState() const { return currentState;}
-    int GetRoomNo() const { return currentRoom; }
-
-    void SetState(GameState state) { currentState = state; }
-    void GoToRoom(int roomNo) { currentRoom = roomNo; }
-
-    void CheckMenuButton();
-
-    void LoadRoomsFromFile(const std::string& filename);
-    Room& GetCurrentRoom();
-
-
-};
-
-class RoomManager {
-private:
-    std::vector<Room> rooms;
-    std::vector<Texture2D> textures;
-
-public:
-    bool loadRooms(const std::string& filePath);
-    const Room* getRoom(int index) const;
-    Texture2D getRoomTexture(int index) const;
-    ~RoomManager();
-};
-
+#pragma once
+#include <raylib.h>
 
 class ButtonManager {
-private:
-   // Buttons
+public:
+    // ---- BUTTONS ----
     // Menu Screen Buttons
     Rectangle menuStartGame = {140, 523, 260, 58};
     Rectangle menuContinueQuest = {470, 523, 260, 58};
@@ -77,24 +12,31 @@ private:
 
     
     // Gameplay Screen Buttons
-    
     Rectangle option1Button = {71, 553, 424, 76};
     Rectangle option2Button = {705, 553, 424, 76};
     Rectangle menuButton = {70, 32, 220, 55};
 
     //nextButton = {908, 583, 222, 50};
-
     // Pause Screen Buttons
     //pauseResume = {346, 547, 222, 50};
     //pauseExit = {636, 547, 222, 50};
 
 public:
-    
-    enum class GameOption { NONE, OPTION_A, OPTION_B, BACK};
+    // ----- GAMEPLAY OPTIONS ----
+    enum class GameOption {NONE, OPTION_A, OPTION_B, BACK};
 
+    // ----- MENU OPTIONS ----
     enum class MenuOption {NONE, START, CONTINUE, EXIT};
+
+    // ----- END SCREEN OPTIONS ----
+    enum class EndScreenOption {BACK, NONE, EXIT};
     
 
+    // ----- INPUT CHECK FUNCTIONS -----
+
+    /* -- MENU SCREEN INPUT --
+    * Returns which menu option was selected 
+    */
     MenuOption checkMenuInput() {
         Vector2 mouse = GetMousePosition();
 
@@ -112,6 +54,9 @@ public:
         return MenuOption::NONE;
     }
     
+    /* -- GAMEPLAY SCREEN INPUT --
+    * Returns which gameplay option was selected 
+    */
     GameOption checkGameInput() {
         Vector2 mousePoint = GetMousePosition();
 
@@ -126,6 +71,23 @@ public:
         }
         return GameOption::NONE;
     }
-};
 
-#endif
+    /* -- END SCREEN INPUT --
+    * Returns which end screen option was selected 
+    */
+    EndScreenOption checkEndInput() {
+        Vector2 mousePoint = GetMousePosition();
+
+        if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            if (CheckCollisionPointRec(mousePoint, endGameExit)) {
+                return EndScreenOption::EXIT; // Exit to menu
+            }
+        } else if (IsMouseButtonPressed(MOUSE_LEFT_BUTTON)) {
+            if (CheckCollisionPointRec(mousePoint, menuButton)) {
+                return EndScreenOption::BACK; // Menu button pressed
+            }
+        }
+        return EndScreenOption::NONE;
+    }
+
+};
