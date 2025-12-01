@@ -60,7 +60,15 @@ int Room::get_id() const {return room_id;}
 
 std::string Room::get_desc() const {return room_description;}
 
-std::string Room::get_name() const{return room_name;}
+std::string Room::get_name() const {return room_name;}
+
+int Room::get_opt(int choice) const {
+    if(choice == 1){
+        return option1;
+    }else{
+        return option2;
+    }
+}
 
 //Adds an action to the back of the options vector.
 //Emplace_back creates a copy of the object being emplaced, (i think)
