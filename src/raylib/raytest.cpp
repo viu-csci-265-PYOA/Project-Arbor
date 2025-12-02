@@ -28,7 +28,9 @@ int main() {
     game.LoadRoomsFromFile("resource/narrative/room_dir.txt");
 
 
-    // -------- MAIN GAME LOOP --------
+    // ------------------------
+    //      MAIN GAME LOOP
+    // ------------------------
     while (!WindowShouldClose()) {
         // Update game state based on input
         game.Update();
