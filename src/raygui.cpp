@@ -226,9 +226,10 @@ void GameManager::Update() {
         case GameState::END: {
 
             ButtonManager::EndScreenOption opt = buttons.checkEndInput();
-            switch (opt) {
 
-                case ButtonManager::EndScreenOption::BACK:
+            switch (opt) {
+                
+                case ButtonManager::EndScreenOption::MENU:
                     currentState = GameState::MENU;
                     break;
 
