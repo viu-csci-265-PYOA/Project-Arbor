@@ -5,14 +5,13 @@
 ## Team Members
 
 - duncan-mcleod-1996: *main contact* <img src="images/Funky-Emu.jpg" alt="Duncan's Image" Style="width:10%; height:auto;">
-  - Lead: Project Lead
+  - Lead: Project Lead/Testing
   - Understudy(s): Programming understudy
 - <img src="images/kayleypfp.jpg" alt="kayley's Image" style="width:10%; height:auto;"> kayley-m:
-  - Lead: Testing
+  - Lead: GUI 
   - Understudy(s): Creative/Narrative
 - <img src="images/Kristen1.jpg" alt="KristenM22's Image" style="width:10%; height:auto;"> KristenM22:
   - Lead: Notetaking
-  - Understudy(s): Testing
 - <img src="images/maddiemei8-profile.jpg" alt="Maddiemei8's Image" style="width:10%; height:auto;"> Ma:
   - Lead: Narrative
   - Understudy(s): Project Lead/Presentations
@@ -85,3 +84,4 @@ The project that our team is creating is a text based adventure game that is int
 Whether you're reading or playing a game, the fantasy genre has always presented the chance to escape from reality. After all, who doesn't love a daring quest? As fantasy and game lovers ourselves, our goal is to create a game that will bring our take on an epic adventure to life. By blending storytelling with re-playability, our game will allow the user to generate different story outcomes in each playthrough. 
 
 As a junior software development team, creating a text-based game that is not heavily reliant on graphics will allow us to dive into the world of game development, while also allowing us to apply software development life cycle structure and programming tools in an engaging way.
+
