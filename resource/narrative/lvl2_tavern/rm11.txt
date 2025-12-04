@@ -1,29 +1,29 @@
 You attempt to listen to the townsfolk. You find yourself a spot at a table 
 just out of the way enough to not catch attention, but still close enough that 
 you can hear the lively conversation of the tavern-goers. While the mood had 
-been particularly jovial, when you entered there’s a growing rumbling at one 
+been particularly jovial, when you entered there's a growing rumbling at one 
 of the tables nearer to you.
 
-“Harvest? There wasn’t a blasted harvest this year!” One man suddenly 
-exclaims. “The river that supplies our fields ran dry long before the summer 
-even began. The crops didn’t stand a chance.”
+"Harvest? There wasn't a blasted harvest this year!" One man suddenly 
+exclaims. "The river that supplies our fields ran dry long before the summer 
+even began. The crops didn't stand a chance."
 
 There are murmurs of sympathy from around the table.
 
-“And you’d think the crown would take that into account. You’d think they’d 
-know there’s no money if there aren’t any crops to sell for it, but no–” he 
-slams a fist onto the table “– they raise the taxes instead.”
+"And you'd think the crown would take that into account. You'd think they'd 
+know there's no money if there aren't any crops to sell for it, but no–" he 
+slams a fist onto the table "– they raise the taxes instead."
 
 The conversation breaks down as everyone chimes in.
 
-“We need to do something–”
+"We need to do something–"
 
-“They have no right!!”
+"They have no right!!"
 
-“Our farm can afford to share the harvest–”
+'Our farm can afford to share the harvest–"
 
-“This wouldn’t have happened if the order was still around–”
+"This wouldn't have happened if the order was still around–"
 
-The noise swells and you don’t catch the rest of the sentence.
+The noise swells and you don't catch the rest of the sentence.
 
 Do you move closer to hear the rest of the conversation or flag down a server?
