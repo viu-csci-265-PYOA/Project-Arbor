@@ -28,7 +28,9 @@ int main() {
     game.LoadRoomsFromFile("resource/narrative/room_dir.txt");
 
 
-    // -------- MAIN GAME LOOP --------
+    // ------------------------
+    //      MAIN GAME LOOP
+    // ------------------------
     while (!WindowShouldClose()) {
         // Update game state based on input
         game.Update();
@@ -37,15 +39,6 @@ int main() {
         game.Draw();
     }
 
-    
-    // Unload textures
-    UnloadTexture(game.menuBg);
-    UnloadTexture(game.gameplayScreen);
-    UnloadTexture(game.endScreen);
 
-    // Unload font
-    UnloadFont(game.font);
-
-    CloseWindow();
     return 0;
 }
