@@ -37,15 +37,16 @@
 
 ## 1. Known Issues/Omissions <a name="section1"></a>
 
-In terms of core sections, adjustments and details are still being refined for section 5: Product Features and Behaviours. Additionally, a measurable condition for entertainment value in section 8: Non-functional Requirements still needs to be developed in phase 4\.
+Section 4: “Neutral” storyline completed up until Level 4 - The Clearing. Detailed plot and levels for “Good” and “Evil” storyline are still in development.
 
-This document is also missing relational diagrams for section 6: User Interface and Navigation, and accompanying diagrams to be included in the appendix.
+Section 8: Non-functional Requirements still needs to be developed.
+
 
 ## 2. Introduction and Overview <a name="section2"></a>
 
-Arbor is a single player, text-based game, where the user is faced with different choices that guide the overarching story. Each action the user selects has the possibility of leading them down a specific branch of the game's narrative tree, allowing them to reach good, neutral or evil endings as well as customize the path that leads them there. Arbor’s target platform is PC and is aimed at users who enjoy the fantasy genre and narrative driven content.  
+Arbor is a single player, text-based game, where the user is faced with different choices that guide the overarching story. Each action the user selects has the possibility of leading them down a specific branch of the game's narrative tree, allowing them to reach "Good", "Neutral" or "Evil" endings as well as customize the path that leads them there. Arbor’s target platform is PC and is aimed at users who enjoy the fantasy genre and narrative driven content.  
    
-Arbor is set in a realm beset by magical unrest, rivers run green, once fertile fields have become arid, and violent storms roll across the land. The user awakes in a dungeon with no memory of how they came to be there and only a mysterious amulet to guide their way. Will they be able to recover their memories and unravel the mystery, or will they too succumb to the dark magic seeping into the land?  
+Arbor is set in a realm beset by magical unrest, rivers run green, once fertile fields have become arid, and violent storms roll across the land. The user awakens in a dungeon with no memory of how they came to be there and only a mysterious amulet to guide their way. Will they be able to recover their memories and unravel the mystery, or will they too succumb to the dark magic seeping into the land?  
    
 The objective of the game is to reach one of the three main narrative conclusions. The likelihood of reaching one of these endings is based upon the quality of the user’s decisions throughout the game. For instance, when faced with gathering information from one of the game’s NPCs, does the player attempt to befriend them or coerce them? If the player is more likely to choose the former, they proceed further down the branch leading towards the “Good” ending, whereas if they choose the latter, then that would lead down the “Evil” ending branch.
 
@@ -59,13 +60,85 @@ As a junior software development team, creating a text-based game that is not he
 
 ## 4. Game flow, objectives, and plot-line <a name="section4"></a>
 
-As stated in the game overview, the ultimate objective for a player is to reach one of the three main narrative conclusions. The core build for the game will only feature one ending with multiple endings added in subsequent builds. A “win” condition is that the player successfully reaches and completes the last room level. A “lose” condition occurs when the player triggers a premature ending or “dead end” along the way. 
+As stated in the game overview, the ultimate objective for a player is to reach one of the three main narrative conclusions, “Good”, “Neutral”, or “Evil”. The core build for the game will only feature part of the “Neutral” storyline with multiple endings added in subsequent builds. A “Win” condition is that the player successfully reaches and completes the last room level. A “Lose” condition occurs when the player triggers a premature ending or “Dead End” along the way. 
 
 In subsequent builds, the likelihood of reaching one of these endings is based upon the quality of the user’s decisions throughout the game. For instance, when faced with gathering information from one of the game’s NPCs, does the player attempt to befriend them or coerce them? If the player is more likely to choose the former, they proceed further down the branch leading towards the “Good” ending, whereas if they choose the latter, then that would lead down the “Evil” ending branch.
 
-For the core build, players begin in the game in “The Dungeon” room and then proceed through a series of levels, referred to as rooms, culminating in “The Tree” room. Players can only proceed from one room to the next and cannot traverse rooms backwards. To navigate through these rooms, players must pick the correct option when faced with Turning Point and Junction decisions in each room. 
+**Game Flow**
 
-If players choose incorrectly, they will receive the “Your Journey has Ended” message and then the game will load the End Game Screen. If players complete each room successfully, they will receive a victory message and then the game will load the End Game Screen. From the End Game Screen, players can return the Main Menu or Exit the Game.
+For the core build, players begin in the game in “The Dungeon” room and then proceed through a series of levels, referred to as rooms, culminating in “The Tree” room. To navigate through these rooms, players must read through the narrative description presented to them and then choose one of the two branching options. For instance, in the opening scene of the Dungeon the player is given the following:
+
+You wake in a moonlit cell.
+
+Motes of dust float through the air, flickering in and out of existence as they cross beneath the shadows of heavy iron bars.
+
+Through a narrow window set high in the crumbling stone wall you can glimpse a courtyard and within it stands a great oak tree. 
+
+Your choices are as vast as its sprawling branches. Where will your journey lead you?
+
+[choice] Do you search your surroundings or try to open the door to the cell?
+
+Each room features two junctions, where players can make decisions. While both options in the above example can lead to dead ends, the correct decision in the second junction will lead the player onto two different rooms. The diagram below highlights the pathways that the player can proceed down in the Dungeon.
+
+<img src="../images/Dungeon - Game Flow.png" alt="Dungeon Game Flow Diagram" style="width:45%; height:auto;">
+
+If players choose incorrectly, they will receive the “Your Journey has Ended” message and then the game will load the End Game Screen. Note that players can only proceed from one room to the next and cannot traverse rooms backwards. If players complete each room successfully, they will receive a victory message and then the game will load the End Game Screen. From the End Game Screen, players can return to the Main Menu or Exit the Game.
+
+**Plot Line**
+Each of the three branches begins in the Dungeon level with the player waking to find themselves locked in a cell. They are then tasked with navigating their way out of their imprisonment; however, this is where the plot-lines diverge.
+
+While the current state only captures the core or “Neutral” ending, as a scalable option a “Good” and “Evil” storyline are also planned. Below is a general outline of the plot for each narrative branch.
+
+“Neutral” Ending: The player awakes in a dungeon with no memory. A mysterious amulet is their only clue to their identity. They manage to escape the dungeon with the help of a stranger with a sinister prophecy and find themselves wandering the town until they come across a tavern. 
+
+In the tavern, they meet the barkeep. The barkeep reveals that their amulet is the symbol of the Order of the Oak. A mysterious group of knights, who once protected the land. However, little has been seen of them since magical chaos has taken hold of the land. When city guards come to the tavern, searching for the player, the barkeep helps them escape.
+
+The player flees into the forest, where they encounter a monk and his apprentice. After saving the pair from a group of bandits, the monk shares that, in his sworn role as historian of the realm, he knows where the Order of the Oak resides.
+
+The monk leads the player to a temple set at the foot of a tall oak tree, where the player finds signs of a fight. The player pieces together that the knights must have perished defending the tree, but something feels off. The stranger from the beginning of the story reappears and reveals that the player was indeed a knight of the order before attacking them. During the fight they reveal that the player was responsible for the deaths of the rest of the order.
+
+By some miracle, the player survives their encounter with the stranger, but now must reconcile that they are responsible for the destruction of the order and the seeming magical chaos that runs rampant across the realm. They stumble their way to the oak tree and find a sword stabbed into its trunk. Sacrificing their magic and life, the player frees the sword from the wood and heals the tree. The land is saved.
+
+Level 1: The Dungeon
+  - The player wakes in a dungeon with no memory of how they came to be there.
+  - They encounter a ghoulish stranger in the cell next to them that spins them a bizarre prophecy. 
+  - When the stranger’s shouting draws the guard’s attention, they come to investigate and the stranger attacks them.
+  - Together you manage to incapacitate the guards and retrieve the keys to the cell.
+  - The player makes their way out of the dungeon, losing the stranger along the way.
+
+Level 2: The Tavern
+  - The player wanders through a town and comes to a tavern.
+  - Inside they overhear townsfolk complaining about the harvest and the taxes from the royal family.
+  - One of the villagers recognizes the player’s amulet and tells them about the order of knights sworn to protect the tree. The player can’t remember, but the villager seems to think they must be a knight if they possess an amulet.
+  - The villagers encourage the player to find out what happened to the knights and why the tree has seemingly turned its back on them.
+
+Level 3: The Forest
+  - The player sets off looking for answers.
+  - They follow the road from the village towards the vast forest that surrounds the tree.
+  - They run into the royal guards or bandits.
+
+Level 4: The Clearing
+  - The player encounters bandits and rescues a pair of captured travellers.
+
+Level 5: The Monk
+  - After the royal carriage passes by, the player meets a monk and his apprentice. 
+  - The monk reveals his connection to the Order of the Oak and helps the player find their sanctum.
+
+Level 6: The Temple
+  - The player comes across the temple clearing, recalling the first time they came across it.
+  - Inside they find signs of a fight broken out, and when they come to the central chamber they remember fighting in these rooms.
+  - The stranger from before reappears and attacks the player. In the scrabble the player tears off the stranger’s amulet and realizes they are a knight as well. They accuse the stranger of killing all the knights for their own gain.
+  - The stranger reveals that it was not them but the player who killed the other knights.
+Level 7: The Tree
+  - The player makes it out of the encounter to find the tree, a sword embedded in its side, leaking dark magic. This is what is causing the chaos throughout the land, but the magic doesn’t stem from the sword, but the player themselves.
+  - The player manages to wrench the sword from the tree and uses their magic to try and heal the damage they’ve caused. While the player perishes, the tree flourishes once more and the land is saved.
+
+“Good” Ending: While this may follow a similar path to the “Neutral” Ending, where the player awakes in a dungeon with no memory. The “Good” storyline diverges in the fact that the player is able to follow a path which allows them to survive their final encounter, and heal the tree without sacrificing themselves.
+
+“Evil” Ending: The “Evil” Ending follows the path of the player making more selfish decisions and growing to resent the realm rather than wanting to protect. Instead of choosing to heal the tree as in the “Neutral” and “Good” Ending, the player chooses to keep the power for themselves.
+
+<img src="../images/Narrative-Map.png" alt="Narrative Diagram" style="width:45%; height:auto;">
+
 
 ## 5. Product features and behaviour <a name="section5"></a>
 
