@@ -39,15 +39,6 @@ int main() {
         game.Draw();
     }
 
-    
-    // Unload textures
-    UnloadTexture(game.menuBg);
-    UnloadTexture(game.gameplayScreen);
-    UnloadTexture(game.endScreen);
 
-    // Unload font
-    UnloadFont(game.font);
-
-    CloseWindow();
     return 0;
 }
