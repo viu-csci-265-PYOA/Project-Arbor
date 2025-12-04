@@ -1,5 +1,8 @@
 # Project Arbor makefile:
 
+# -------------------- WINDOWS COMPILATION COMMAND FOR RAYLIB
+# g++ -o bin/arbor.exe src/main.cpp src/raygui.cpp -I include -L lib -lraylib -lgdi32 -lwinmm
+
 # Variables:
 CXX = g++
 CXXFLAGS = -Wall -Wextra -g -Iinclude

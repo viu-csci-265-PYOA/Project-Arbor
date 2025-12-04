@@ -1,5 +1,5 @@
-#include "../../include/rayGameManager.h"
-#include "../../include/savesystem.hpp"
+#include "../include/rayGameManager.h"
+#include "../include/savesystem.hpp"
 
 #include <raylib.h>
 #include <fstream>
@@ -153,7 +153,7 @@ void GameManager::Update() {
         
         // -------- GAMEPLAY SCREEN INPUT --------
         case GameState::GAMEPLAY: {
-            {
+            { // what's this brakcets whole deal
             const Room* room = rooms.getRoom(currentRoom);
             
             if (!room) break;
@@ -239,7 +239,7 @@ void GameManager::Update() {
                     default:
                         break;
             }
-        }}   
+        }} // is this right? 
     }
 }
 
