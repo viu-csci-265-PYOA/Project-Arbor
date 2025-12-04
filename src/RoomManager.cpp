@@ -1,4 +1,5 @@
-#include "../../include/rayGameManager.h"
+#include "../include/rayGameManager.h"
+
 #include <raylib.h>
 #include <fstream>
 #include <sstream>

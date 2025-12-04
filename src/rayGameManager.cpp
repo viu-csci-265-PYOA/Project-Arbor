@@ -1,4 +1,6 @@
-#include "../../include/rayGameManager.h"
+#include "../include/rayGameManager.h"
+#include "../include/savesystem.hpp"
+
 #include <raylib.h>
 #include <fstream>
 #include <sstream>
@@ -133,11 +135,13 @@ void GameManager::Update() {
                     break;
 
                 case ButtonManager::MenuOption::CONTINUE:
+                    currentRoom = *save_system::load_object<int>("resource/save/save.bin"); // load saved room index
                     currentState = GAMEPLAY; // continue from where you were
                     break;
 
                 case ButtonManager::MenuOption::EXIT:
                     // exit game
+                    save_system::save_object<int>(&currentRoom, "resource/save/save.bin"); // autosave on exit
                     CloseWindow();
                     break;
 
@@ -206,6 +210,9 @@ void GameManager::Update() {
 
                 // -------- BACK TO MENU --------
                 case ButtonManager::GameOption::BACK:
+                    // autosave on return to main menu
+                    save_system::save_object<int>
+                        (&currentRoom, "resource/save/save.bin"); 
                     currentState = GameState::MENU;
                     textScrollY = 0.0f; // reset scroll on new room
                     break;
