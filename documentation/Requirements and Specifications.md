@@ -165,26 +165,34 @@ Character Traits: The initial build of Arbor will feature the ability for the pl
 If an incorrect value is entered or the field is left blank, the game will display an error prompt and ask the player to re-enter until valid input is obtained.
 
 **Navigating the Decision Tree**  
-The player navigates through the game by choosing various options in each room. Each option will lead them towards a different ending or the next location. In the initial build, the player will use command line prompts; however, as a stretch goal we would like to incorporate a graphical interface which would allow the user to select options using buttons. For instance, the player will enter a CHOICE based on a prompt in the command line, i.e. 1 \- CHOICE A and 2 \- CHOICE B. So if the user wants to choose CHOICE A, they will enter ‘1’ in the command line and if they want to choose CHOICE B, they will enter ‘2’. 
+The player navigates through the game by choosing various options in each room. Each option will lead them towards a different ending or the next location. In the initial build, the player will use command line prompts; however, as a stretch goal we would like to incorporate a graphical interface which would allow the user to select options using buttons. For instance, the player will enter a CHOICE based on a prompt in the command line, i.e. 1 - CHOICE A and 2 - CHOICE B. So if the user wants to choose CHOICE A, they will enter ‘1’ in the command line and if they want to choose CHOICE B, they will enter ‘2’. In a graphical user interface, buttons labelled with OPTION 1 and OPTION 2 will be provided to the user.
 
 The player will move between locations, each once presenting them with options. 3 main endings (Good, neutral, evil). Decisions will lead the player down one of these paths
 
 Branching Points: Branching points refer to the places in the story where the player can choose between different options which will lead them down various directions in the narrative. There are two types of branching points available to the player, Junctions and Turning Points.
 
 * Junctions: Junctions are minor decisions in a room. In the core build, players will have the option of choosing between 2 choices. These choices will not impact the overall (Good, Neutral, Bad) ending, but have the opportunity to lead to Dead Ends.  
-  * For instance, if the player is faced with “1 \- Find a hiding spot,” or “2 \- Try to escape the guards.”  
+  * For instance, if the player is faced with “1 - Find a hiding spot,” or “2 - Try to escape the guards.”  
     * Consider the player selects 2, then the game will load the narrative outcome for this choice. In this case, the narrative outcome is that the player is caught by the guards. A narrative description will display and then a message “Your journey has ended” is displayed.  
 * Turning Points: Turning points, unlike junctions, represent major decisions that are available to players in a room. Rooms will at most have one turning point decision. These turning points have the ability to steer the player towards a different ending condition (Good, Neutral, Evil) and will also govern which Room will appear next for the player to proceed towards.  
-  * For instance, when faced with gathering information from one of the game’s NPCs, the player is given the choices “1 \- Befriend” or “2 \- Coerce”.   
+  * For instance, when faced with gathering information from one of the game’s NPCs, the player is given the choices “1 - Befriend” or “2 - Coerce”.   
     * If the player selects 1, then the game loads the corresponding narrative outcome. Additionally, the game also changes what rooms are available to proceed to and by doing this alters what ending (Good, Neutral, Evil) that the player can access.   
 * If a user selects an option that is not available, i.e. 3 for the previous option. The game will process the input, and then output an error message that the user has selected an invalid choice. The game will then prompt the user to re-enter their choice.
 
 **Items** 
-Items will not be available in the core build of the game. However, subsequent versions should include items that can be collected by the player. Throughout their journey, players have the possibility of finding items. These items allow players to change narrative outcomes and can act as rewards to incentivise exploration and thorough play. Items are collected through the correct sequence of choices.
+Items will not be available in the core build of the game. However, subsequent versions should include items that can be collected by the player. Throughout their journey, players have the possibility of finding items. These items allow players to change narrative outcomes and can act as rewards to incentivise exploration and thorough play. Items are collected through the correct sequence of choices. Items are planned to be stored in a “resource/item” subdirectory, when implemented.
+  * Proposed Items Classes:
+    * KEY: This item would allow the player to unlock a previously locked door in the game.
+    * WEAPON: This item would allow the player to perform better in combat narrative scenes.
+  * In-Game Item Use Example: For instance, given a player is in a room and faced with a choice to search various locations and there is an item keyed to one of those locations, this might be the following series of events:
 
-* For instance, given a player is in a room and faced with a choice to search various locations. They may be asked, do you “search the dresser” or do you “search the bookcase.”  
-  * If an item is available in the room, and the item is keyed to the “search the dresser”, then if the player selects  “search the dresser” they will receive the item. The game will add the item from the item resource catalog to the player’s inventory.  
-  * Later on in the game, the user may be able to unlock further decisions or change the success of a decision if they have the item in their possession.
+  “You enter a dusty room, filled to the brim with clutter. Do you search the dresser or do you search the bookcase?
+    - If the player selects  “search the dresser” they will receive a KEY class item. The game will add the KEY from the item resource catalog to the player’s inventory and display the following message or similar.
+      - “You have found a tarnished silver key. Who knows what it might unlock.”
+    - If they select “search the bookcase,” then no item is added to the player’s inventory.
+    - Later on in the game, the user may be able to unlock further decisions or change the success of a decision if they have the item in their possession. For instance,
+      - “Try to unlock the door” may be a dead end if the player does not have the key in their possession. However, if the player has the correct key in their inventory, then this junction will continue to the next room.
+
 
 **Saving and Loading**
 The game will feature saves or “bookmarks,” which will allow the player to resume where they left off. Automatic saves will be made at the starting node, and each subsequent node after. Additionally, a save will be made if the player exits the game or returns to the Main Menu.
@@ -328,5 +336,8 @@ The following features are not expected to make it into our initial version of t
 * Bookmarks: Bookmarks are save files that store the latest checkpoint the player has reached in the game. Most of the time this will be the current room.
 
 ## 11. Appendices <a name="section11"></a>
+
+State Diagram
+<img src="Project Arbor - State Diagram-1.2.jpg" alt="State Diagram" style="width:45%; height:auto;">
 
 **Known Omission** : Diagrams
