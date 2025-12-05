@@ -233,7 +233,7 @@ Game start-up screen. Interface that the player sees on launch, used to start or
 
 Character customization screen. The menu that allows players to select options for their character.
 
-* Main Menu (Back to Main Menu, does not save character details)  
+* Back (Returns to Main Menu, does not save character details)  
 * Continue (Proceeds to Gameplay)  
 * Character Customization Options (Name/Physical/Mental Traits)  
   * Centred on screen with prompts on the left and input entered on the right.  
