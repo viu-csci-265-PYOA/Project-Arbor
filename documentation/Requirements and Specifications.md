@@ -187,48 +187,47 @@ Items will not be available in the core build of the game. However, subsequent v
   * In-Game Item Use Example: For instance, given a player is in a room and faced with a choice to search various locations and there is an item keyed to one of those locations, this might be the following series of events:
 
   “You enter a dusty room, filled to the brim with clutter. Do you search the dresser or do you search the bookcase?
-    - If the player selects  “search the dresser” they will receive a KEY class item. The game will add the KEY from the item resource catalog to the player’s inventory and display the following message or similar.
-      - “You have found a tarnished silver key. Who knows what it might unlock.”
-    - If they select “search the bookcase,” then no item is added to the player’s inventory.
-    - Later on in the game, the user may be able to unlock further decisions or change the success of a decision if they have the item in their possession. For instance,
-      - “Try to unlock the door” may be a dead end if the player does not have the key in their possession. However, if the player has the correct key in their inventory, then this junction will continue to the next room.
+    * If the player selects  “search the dresser” they will receive a KEY class item. The game will add the KEY from the item resource catalog to the player’s inventory and display the following message or similar.
+      * “You have found a tarnished silver key. Who knows what it might unlock.”
+    * If they select “search the bookcase,” then no item is added to the player’s inventory.
+    * Later on in the game, the user may be able to unlock further decisions or change the success of a decision if they have the item in their possession. For instance,
+      * “Try to unlock the door” may be a dead end if the player does not have the key in their possession. However, if the player has the correct key in their inventory, then this junction will continue to the next room.
 
 
 **Saving and Loading**
 The game will feature saves or “bookmarks,” which will allow the player to resume where they left off. Automatic saves will be made at the starting node, and each subsequent node after. Additionally, a save will be made if the player exits the game or returns to the Main Menu.
 
 * Save Files:   
-  * Save files will store the following player information:  
-    * Player Name  
-    * Player Traits  
-    * Room Node  
-    * Item Inventory  
-  * In the core build, Create a New Game will overwrite an already existing save file. However, subsequent builds may incorporate multiple save files.
+  * Save files will store the following player information: 
+    * Current Room Index 
+    * Player Name  *SCALABLE FEATURE*
+    * Player Traits  *SCALABLE FEATURE*
+    * Item Inventory  *SCALABLE FEATURE*
+  * In the core build, creating a new game will overwrite an already existing save file. However, subsequent builds may incorporate multiple save files.
 
-* Load Game: [How do you load a game? What buttons/input is needed? What happens when you load a game?]
+* Load Game: 
 
-  * Upon launching the game, the player will select the LOAD GAME option from the main menu. When this option is selected, the game state is loaded with the saved data and the game proceeds to regular gameplay.
-
+  * Upon launching the game, the player will select the CONTINUE THE QUEST option from the main menu. When this option is selected, the game state is loaded with the saved data and the game proceeds to regular gameplay.
   * When loading a game, the player can only access the latest room node. In subsequent builds, players may be able to choose from earlier points in their save file.  
-  * If the player attempts to select LOAD GAME without a save file, then the game will display an error message, i.e. “No saved game available.”
 
 ## 6. User interface and navigation <a name="section6"></a>
 
 Arbor will feature a limited amount of playscreens and menus. The following are available screens a player might navigate through during a typical game, with short descriptions for each.
 
 * Main Menu: Game start-up screen. Interface that the player sees on launch, used to start or load gameplay.  
-* Character Creation: Character customization screen. the menu that allows players to select options for their character.  
+* Character Creation: Character customization screen. the menu that allows players to select options for their character.  *SCALABLE FEATURE*
 * Playscreen: The screen the player will see during actual gameplay, featuring narrative and decision options.  
-* Pause Screen: The screen which allows the player to exit back to the main menu or exit game.  
 * End Game Screen : Displays victory or loss message and allows users to exit back to the main menu or exit the game.
 
 **Main Menu**
 
 Game start-up screen. Interface that the player sees on launch, used to start or load gameplay.
 
-* Create New Game  
-* Load Game   
+* Start Your Adventure [Create New Game]  
+* Continue the Quest [Load Game]   
 * Exit Game
+
+<img src="../resource/mainMenu.png" alt="Main Menu" style="width:45%; height:auto;">
 
 **Character Creation**
 
@@ -240,6 +239,8 @@ Character customization screen. The menu that allows players to select options f
   * Centred on screen with prompts on the left and input entered on the right.  
   * Each prompt displays on a separate line.
 
+<img src="../images/characterCreation.png" alt="Character Creation" style="width:45%; height:auto;">
+
 **Playscreen**
 
 The screen the player will see during actual gameplay, featuring narrative and decision options.
@@ -249,13 +250,7 @@ The screen the player will see during actual gameplay, featuring narrative and d
 * Choice Options  
 * Input mechanism
 
-**Pause Screen**
-
-The screen which allows the player to exit back to the main menu or exit game.
-
-* Resume  
-* Main Menu  
-* Exit Game
+<img src="../images/arborGraphicChoice.png" alt="Gameplay Screen" style="width:45%; height:auto;">
 
 **End Game Screen**
 
@@ -264,27 +259,53 @@ Displays victory or loss message and allows users to exit back to the main menu 
 * Main Menu  
 * Exit Game
 
-**Known Omission:** *Relational Diagrams for Menu Screens*
+<img src="../resource/endScreen.png" alt="Main Menu" style="width:45%; height:auto;">
+
+**User Interface Navigation**
+
+<img src="../images/UI-Relational-Diagram.png" alt="UI Relational Diagram" style="width:45%; height:auto;">
 
 ## 7. Use cases/scenarios <a name="section7"></a>
 
-There are two core use cases for this project; case 1, where a player opts to create a new game before entering gameplay, and case 2, where a player opts to load a saved game before continuing to gameplay.
+There are three core use cases for this project; case 1, where a player opts to create a new game before entering gameplay; case 2, where a player opts to load a saved game before continuing to gameplay; and case 3, where a player has entered active gameplay.
 
 **Case 1:  Create a New Game**
 
-A player wishes to create a new game file to play from. This situation occurs when a player starts the game for the first time or wishes to overwrite an existing save file. The player will load Arbor to the Main Menu. From the Main Menu, the player will select the CREATE NEW GAME option. 
+A player wishes to create a new game file to play from. This situation occurs when a player starts the game for the first time or wishes to overwrite an existing save file. The player will load Arbor to the Main Menu. From the Main Menu, the player will select the START YOUR ADVENTURE option. 
 
 The game will then load the Character Creation Screen which is only available when creating a new game file. On the character creation screen, the player will complete the prompts and then select CONTINUE. If the player does not wish to create a new game at this point, they can hit the BACK option. Note that hitting back at this point will erase any entered inputs for the prompts. Once the player has selected CONTINUE, the game will create a new game state for them and proceed to main gameplay. 
 
-When the player eventually finishes a session, the game will save their progress so that it is accessible from the LOAD option at a later date.
+When the player eventually finishes a session, the game will save their progress so that it is accessible from the CONTINUE THE QUEST option at a later date.
 
 **Case 2: Load a Game**
 
-A player wishes to load a game file to play from. This situation occurs when a player has started the game and played previously. The player will load Arbor to the Main Menu. From the Main Menu, the player will select the LOAD GAME option. 
+A player wishes to load a game file to play from. This situation occurs when a player has started the game and played previously. The player will load Arbor to the Main Menu. From the Main Menu, the player will select the CONTINUE THE QUEST option. 
 
-Once the player has selected LOAD GAME, the game will fetch the existing game file and load it into the game state for them and then proceed to main gameplay. 
+Once the player has selected CONTINUE THE QUEST, the game will fetch the existing game file and load it into the game state for them and then proceed to main gameplay. 
 
-When the player eventually finishes a session, the game will save their progress so that it is accessible from the LOAD option at a later date.
+When the player eventually finishes a session, the game will save their progress so that it is accessible from the CONTINUE THE QUEST option at a later date.
+
+**Case 3: Game Play**
+
+To understand the gameplay of Arbor, we’ll use the game flow of the “Dungeon” level to walk through a “Progression,” “Dead End,” and “Early Exit.” For reference to decisions referred to in the walkthrough, see the Dungeon’s game flow diagram below.
+
+“Progression”: Progression in the game refers to two states. First, the player follows a pathway of decision that leads them to a subsequent room; and second, the player follows a pathway that leads to the conclusion of the game. A conclusion progression can only be reached in the Tree level of the game. This will be revisited in more detail. A progression pathway in the Dungeon comprises of the following player decisions:
+  * Search Your Surroundings
+      * Incapacitate a Guard
+          * Proceed to the Tavern
+
+“Dead End”: Dead Ends in the game transition the game to a game over state. Once the narrative has been displayed for the dead end, the player can select any option and they will be taken to the “Game Over” screen. The following is a dead end pathway in the dungeon:
+  * Try to Open the Cell Door
+      * Hide
+          * Dead End
+
+“Early Exit”: An Early Exit in the game occurs when a player moves from the gameplay screen to the “Main Menu”. The game automatically saves the index to the current room, so that the game can be reloaded from that scene later. An early exit could comprise the following set of actions:
+  * Search Your Surroundings
+  * Main Menu
+  * Exit Game
+
+As mentioned earlier, Arbor can also enter a “Win” state if the player completes a progression pathway in the final Tree level of the game. Currently, there is no “Win” state screen implemented and narrative development has not reached the final level. However, similar to the “Dead End” once the narrative has been displayed for the end of the level, the player can select any option and they will be taken to the “Win” screen. From there, they can exit the game.
+
 
 ## 8. Non-functional requirements <a name="section8"></a>
 
@@ -337,7 +358,15 @@ The following features are not expected to make it into our initial version of t
 
 ## 11. Appendices <a name="section11"></a>
 
+Data Flow Diagram - Level 0
+<img src="Project Arbor - DFD Level 0.jpg" alt="DFD Level 0" style="width:45%; height:auto;">
+
+Data Flow Diagram - Level 1
+<img src="Project Arbor - DFD Level 1.jpg" alt="DFD Level 1" style="width:45%; height:auto;">
+
+Entity Relation Diagram
+<img src="Project Arbor - ERD - new.drawio" alt="ERD" style="width:45%; height:auto;">
+
 State Diagram
 <img src="Project Arbor - State Diagram-1.2.jpg" alt="State Diagram" style="width:45%; height:auto;">
 
-**Known Omission** : Diagrams
