@@ -7,7 +7,7 @@
 #  pretty sure this needs raylib installed, and specifically ignores the lib folder. 
 #  this worked on arch linux
 #  seems like it works with only -lraylib and -lGL, but works the same with everything else
-#  g++ -o bin/arbor.exe src/main.cpp src/rayGameManager.cpp src/RoomManager.cpp -I include -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+#  g++ -o bin/linux_arbor.exe src/main.cpp src/rayGameManager.cpp src/RoomManager.cpp -I include -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
 
 # Variables:
 CXX = g++
