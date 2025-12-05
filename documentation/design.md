@@ -96,7 +96,7 @@ In order to enable a save system to allow the player to close the game and resum
 Arbor is a single player game that will be played entirely on the player’s own machine. There will be no external systems, and all interactions will be between the player and their own computer using the game’s GUI. 
 
 Data Flow Diagram - Level 0  
-<img src="Project Arbor \- DFD Level 0.jpg" alt="DFD Level 0" style="width:45%; height:auto;">
+<img src="Project Arbor - DFD Level 0.jpg" alt="DFD Level 0" style="width:45%; height:auto;">
 
 ## 5. Architectural Design
 
@@ -133,7 +133,7 @@ Game control does not interact with the player directly, instead it uses input v
 
 The game starts on the main menu, in which the player is presented with three options: “Start Your Adventure,” “Continue the Quest,” and “Exit Game.” The start button sets the current room ID to 0, or the first room, and sets the game state to gameplay. Continue loads a save file, then uses the room ID contained within as the new current room ID, then updates game state to gameplay. “Exit Game” saves the current room to a file and closes the game. 
 
-During gameplay, the player is presented with a “Menu” button and 2 options. The player will use the narrative context to choose and options which, when clicked, will update the current room ID to their corresponding room. If the selected option’s ID is \-1, the player will be shown the exit screen, but their current room will not be changed.. If the player presses the “Menu” button, the game’s state will be returned to menu. Notably the current room ID is not reset upon returning to the main menu, so exiting from here will save the player’s progress.
+During gameplay, the player is presented with a “Menu” button and 2 options. The player will use the narrative context to choose and options which, when clicked, will update the current room ID to their corresponding room. If the selected option’s ID is -1, the player will be shown the exit screen, but their current room will not be changed.. If the player presses the “Menu” button, the game’s state will be returned to menu. Notably the current room ID is not reset upon returning to the main menu, so exiting from here will save the player’s progress.
 
 The exit screen features a “Main Menu’ button, and an “Exit” button. Menu will return the game state to the main menu, and exit will simply close the game. Since the current room ID will remain at whatever room precedes the end state, exiting the game after reaching the end screen will save that preceding room’s ID.
 
@@ -249,6 +249,8 @@ The Data Handling module is responsible for all resource loading and saving for 
 
 #### 6.3.1 Data Handling Module Design Diagram
 
+<img src="../images/Data-Handling-Module-Diagram.png" alt="Room Directory to Room Class" style="width:45%; height:auto;">
+
 #### 6.3.2 Room Information Loading  
 The room information loading system is aimed at loading the list of playable rooms from Arbor’s resource/narrative directory to help construct rooms within the game. Upon launching Arbor, the Game Manager system uses file reading to pull information from the directory and assign it to Arbor’s room class system, using RoomManager::loadRooms().
 
@@ -325,7 +327,7 @@ State progression through the game:
    * Return to main menu
 
 State Diagram  
-<img src="Project Arbor \- State Diagram-1.2.jpg" alt="State Diagram" style="width:45%; height:auto;">
+<img src="Project Arbor - State Diagram-1.2.jpg" alt="State Diagram" style="width:45%; height:auto;">
 
 ## 9. Transition to Physical Design
 
@@ -343,5 +345,5 @@ Some other implementation decisions our team made for this project include:
 ## 10. Appendix: the Grand design
 
 Data Flow Diagram - Level 1  
-<img src="Project Arbor \- DFD Level 1.jpg" alt="DFD Level 1" style="width:45%; height:auto;">
+<img src="Project Arbor - DFD Level 1.jpg" alt="DFD Level 1" style="width:45%; height:auto;">
 
