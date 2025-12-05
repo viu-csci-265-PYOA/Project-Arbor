@@ -93,9 +93,10 @@ In order to enable a save system to allow the player to close the game and resum
 
 ## 4. System Context:
 
-Arbor is a single player game that will be played entirely on the player’s own machine. There will be no external systems, and all interactions will be between the player and their own computer using the game’s GUI. 
+Arbor is a single player game that will be played entirely on the player’s own machine. There will be no external systems, and all interactions will be between the player and their own computer using the game’s GUI.
 
-Data Flow Diagram - Level 0  
+Data Flow Diagram - Level 0: show what external elements that interacts with Game Control or what Game control interacts with.
+
 <img src="Project Arbor - DFD Level 0.jpg" alt="DFD Level 0" style="width:45%; height:auto;">
 
 ## 5. Architectural Design
@@ -306,8 +307,9 @@ Image data will include all the images that will be loaded and displayed in the 
 
 * The game saves the room directory.
 
-Entity Relation Diagram  
-<img src="Project Arbor - ERD.jpg" alt="ERD" style="width:45%; height:auto;">
+Entity Relation Diagram: shows the data flow between the various entities.
+
+<img src="Project Arbor - ERD - new.jpg" alt="ERD" style="width:45%; height:auto;">
 
 ## 8. Game state and flow of play:
 
@@ -326,7 +328,8 @@ State progression through the game:
    * The End message  
    * Return to main menu
 
-State Diagram  
+State Diagram: this shows the various states the gamer can be in and how they can get to them.
+
 <img src="Project Arbor - State Diagram-1.2.jpg" alt="State Diagram" style="width:45%; height:auto;">
 
 ## 9. Transition to Physical Design
@@ -344,6 +347,7 @@ Some other implementation decisions our team made for this project include:
 
 ## 10. Appendix: the Grand design
 
-Data Flow Diagram - Level 1  
+Data Flow Diagram - Level 1: provides more details of the external entites from the level 0 DFD. Provide some internal processes of Input stream and Game Control. (This was a early design and may not accurately reflect current Arbor processes.)
+
 <img src="Project Arbor - DFD Level 1.jpg" alt="DFD Level 1" style="width:45%; height:auto;">
 
