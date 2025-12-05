@@ -40,49 +40,79 @@
   └───test: contains relevant copies of code for testing.
 ```
 
+<pre>
+<strong>Project-Arbor</strong>
+├───<strong>bin</strong>: executable(s).
+├───<strong>documentation</strong>: project documents and deliverables.
+├───<strong>images</strong>: document related images.
+├───<strong>include</strong>: code header files.
+├───<strong>lib</strong>: raylib library and dependencies.
+├───<strong>resource</strong>: resources for source code to push/pull from.
+│   ├───<strong>narrative</strong>
+│   │   ├───<strong>lvl1_dungeon</strong>
+│   │   └───<strong>lvl2_tavern</strong>
+│   └───<strong>save</strong>
+├───<strong>src</strong>: .cpp files.
+│   └───<strong>raylib</strong>: raylib specific .c/.cpp files
+└───<strong>test</strong>: contains relevant copies of code for testing.
+</pre>
+
 ## Project Overview
 
-Arbor is a single player, text-based game, where the user is faced with different choices that guide the overarching story. Each action the user selects has the possibility of leading them down a specific branch of the game's narrative tree, allowing them to reach good, neutral or evil endings as well as customize the path that leads them there. Arbor is aimed at users who enjoy the fantasy genre and narrative driven content.  
-   
-Arbor is set in a realm beset by magical unrest, rivers run green, once fertile fields have become arid, and violent storms roll across the land. The user awakes in a dungeon with no memory of how they came to be there and only a mysterious amulet to guide their way. Will they be able to recover their memories and unravel the mystery, or will they too succumb to the dark magic seeping into the land?  
-   
+Arbor is a single player, text-based game, where the user is faced with different choices that guide the overarching story. Each action the user selects has the possibility of leading them down a specific branch of the game's narrative tree, allowing them to reach good, neutral or evil endings as well as customize the path that leads them there. Arbor is aimed at users who enjoy the fantasy genre and narrative driven content.
+
+Arbor is set in a realm beset by magical unrest, rivers run green, once fertile fields have become arid, and violent storms roll across the land. The user awakes in a dungeon with no memory of how they came to be there and only a mysterious amulet to guide their way. Will they be able to recover their memories and unravel the mystery, or will they too succumb to the dark magic seeping into the land?
+
 The objective of the game is to reach one of the three main narrative conclusions. The likelihood of reaching one of these endings is based upon the quality of the user’s decisions throughout the game. For instance, when faced with gathering information from one of the game’s NPCs, does the player attempt to befriend them or coerce them? If the player is more likely to choose the former, they proceed further down the branch leading towards the “Good” ending, whereas if they choose the latter, then that would lead down the “Evil” ending branch.
 
-## Preliminary interface sketches
+## **Building Arbor from Source Code**
 
-Here are some preliminary concepts for what the game screens could look like both from a command line version and a graphical version.
+### Windows
 
-The Main Menu will feature:
+Run the command:
 
-* Create New Game  
-* Load Game   
-* Exit Game
+```bash
+g++ \-o bin/raylib\_main.exe src/raylib/raytest.cpp src/raylib/raygui.cpp \-I include \-L lib \-lraylib \-lgdi32 \-lwinmm
+```
 
-The Playscreen will feature:
+* Note, currently only 4 or 6 team members are able to compile code using the above command. It’s unclear why this is, but it is being investigated. So, you have been warned that it may not compile in Windows if you don’t have the necessary packages.
 
-* Main Menu  
-* Scene Description   
-* Choice Options  
-* Input mechanism
+### Linux
 
-Examples of Command Line and Graphical main menus:
+#### **For none-Debian Distros**
 
-<img src="images/ArborMenu.png" alt="Command Line Menu Version" style="width:45%; height:auto;">
+* install raylib using your respective package manager. See below link for details and see section Install on GNU Linux:
 
-<img src="images/ArborGraphicMenu.png" alt="Graphic Menu Version" style="width:50%; height:auto;">
+[https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux](https://github.com/raysan5/raylib/wiki/Working-on-GNU-Linux) 
 
-Examples of Command Line and Graphical choice menus:
+Run the command:
 
-<img src="images/ArborChoice.png" alt="Command Line Choice Screen" style="width:45%; height:auto;">
+```bash
+g++ \-o bin/linux\_arbor.exe src/main.cpp src/rayGameManager.cpp src/RoomManager.cpp \-I include \-lraylib \-lGL \-lm \-lpthread \-ldl \-lrt \-lX11
+```
 
-<img src="images/ArborGraphicChoice.png" alt="Graphic Choice Screen" style="width:50%; height:auto;">
+#### **Debian Distros**
 
-## Target audience and motivation
+If you are running a Debian distro, good luck. We haven’t been able to get it to compile on Debian distros.
 
-The project that our team is creating is a text based adventure game that is intended to appeal both to gamers with an existing interest in retro style games looking for something with a more nostalgic feel, as well as those with little to no gaming experience. The popularity of the RPG genre shows that this is already a proven market, and our project feeds into that existing audience base. The aim for our team is to create an engaging entry-level game for a genre with rising popularity. Because our game does not rely on complex visuals and complicated gameplay that requires preexisting skills, it presents an accessible bridge to the world of gaming for those who may have a passion for reading and immersive storytelling.
+## **Running Arbor**
 
-Whether you're reading or playing a game, the fantasy genre has always presented the chance to escape from reality. After all, who doesn't love a daring quest? As fantasy and game lovers ourselves, our goal is to create a game that will bring our take on an epic adventure to life. By blending storytelling with re-playability, our game will allow the user to generate different story outcomes in each playthrough. 
+On Windows, run:
 
-As a junior software development team, creating a text-based game that is not heavily reliant on graphics will allow us to dive into the world of game development, while also allowing us to apply software development life cycle structure and programming tools in an engaging way.
+```bash
+arbor.exe
+```
 
+On Linux, run:
 
+```bash
+linux\_arbor.exe
+```
+
+For Wine on Linux, run:
+
+```bash
+wine arbor.exe
+```
+
+* Note, this method hasn’t been tested, so result may vary.
