@@ -4,7 +4,7 @@
 **/temp_file.txt
 
 # bin contains executables, so shouldn't saved:
-bin/**
+#bin/**
 
 # This is team member's VS code setting:
 **/.vscode

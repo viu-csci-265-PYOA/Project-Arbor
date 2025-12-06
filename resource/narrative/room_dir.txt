@@ -12,3 +12,11 @@
 11 Tavern_Listen resource/narrative/lvl2_tavern/rm11.txt 12 13
 12 Tavern_Lean resource/narrative/lvl2_tavern/rm12.txt -1 -1
 13 Tavern_Server resource/narrative/lvl2_tavern/rm13.txt -1 -1
+14 Forest resource/narrative/lvl3_forest/rm14.txt 15 18
+15 Forest_Left resource/narrative/lvl3_forest/rm15.txt 16 17
+16 Forest_Approach resource/narrative/lvl3_forest/rm16.txt 21 21
+17 Forest_Away resource/narrative/lvl3_forest/rm17.txt -1 -1
+18 Forest_Right resource/narrative/lvl3_forest/rm18.txt 19 20
+19 Forest_Carriage resource/narrative/lvl3_forest/rm19.txt -1 -1
+20 Forest_Hide resource/narrative/lvl3_forest/rm20.txt -1 -1
+21 Clearing resource/narrative/lvl4_clearing/rm21.txt -1 -1

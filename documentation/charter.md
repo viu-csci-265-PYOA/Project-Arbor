@@ -45,19 +45,18 @@ Team Goals:
 
 The initial of roles and responsibilities of team members has been divided in the following way:
 
-- Project lead: duncan-mcleod-1996, *main contact*
+- Project lead/Testing: duncan-mcleod-1996, *main contact*
   - Ma (understudy)  
 - Lead programmer: milutopaz
   - duncan-mcleod-1996 (understudy)  
 - Presentation lead: duncan-mcleod-1996/Ma
   - Timber-faol (understudy)  
-- Testing lead: kayley-m
-  - KristenM22 (understudy)  
-- Narrative/creative: Ma
+- GUI lead: kayley-m  
+- Narrative/Creative: Ma
   - kayley-m (understudy)  
 - Version control: Timber-faol
   - milutopaz (understudy)  
-- Notetaking: KristenM22  
+- Documentation: KristenM22  
   - Ma (understudy)
 
    
