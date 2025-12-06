@@ -109,7 +109,7 @@ The project will have three core branches: main, development, and sandbox. The g
 
 * **main**: the most stable branch, which has been tested and will be used to mark the latest production version of the project. This branch is meant for the end user, marketing, and instructor marking.
 
-  * **main/release**: sub-branches of main that mark the version/releases of the project. This sub-branch is not meant for active development, but end user and debugging. \[May not be implemented due to semester time constraints\].
+  * **main/release**: sub-branches of main that mark the version/releases of the project. This sub-branch is not meant for active development, but end user and debugging. (May not be implemented due to semester time constraints).
 
 * **development** (a.k.a **dev**): branches off the latest version of main, this is the active development branch. Code here is being worked on, but has not yet been tested in sandbox.
 
@@ -214,3 +214,14 @@ With regards to merging new content into a branch, merges should happen ideally 
 
 4. **Merging Strategy**: the team will use the **merge commit** strategy as it’s a simple default choice. Having a full commit history and clear merge boundaries should be an asset for troubleshooting bugs. However, if the commit history becomes too cluttered, the team may change to the squash and merge strategy to reduce clutter and have a linear commit history.
 
+5. **New** During Nov.21-23, there were major issues relating to merging the child branch dev/gui to development and vice versa. At the time of this edition, there is no clear explanation as to why there were merging issues. The version control lead at the time managed to stabilize development and safely marge to main. To learn the hard lessons of this event, a new merging standard is being created to help mitigate this from happening. Here are the new steps:
+   1. If any team member is ready to merge a child branch back into its parent branch, they should check to see if anyone has merged a child branch since they created their child branch (or merge the parent branch into the child branch and proceed to next step).
+      1. If a yes, merge parent branch into child branch.
+         1. Resolve any conflicts and proceed to nest step.
+      2. If no, proceed to next step.
+   2. Make a pull request and post to Discord who they assigned to review and merge.
+      1. If reviewer passes on any conflicts they couldn't resolve, resolve them and inform reviewer there are resolved.
+   3. Reviewer approves the review and merges the branches.
+   4. Reviewer does 2 things on discord:
+      1. They inform everyone the merge was successful
+      2. and the tells everyone to merge the parent branch into child branch so everyone is work with the latest updates.
