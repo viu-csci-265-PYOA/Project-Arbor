@@ -2,7 +2,7 @@
 
 ## Team: Pick Your Own Adventure (PYOA)
 
-## Team Members
+## 1. Team Members
 
 - duncan-mcleod-1996: *main contact* <img src="images/Funky-Emu.jpg" alt="Duncan's Image" Style="width:10%; height:auto;">
   - Lead: Project Lead/Testing
@@ -22,23 +22,19 @@
   - Lead: Version Control
   - Understudy(s): Presentation
 
-## Directory Structure
-  ```text
-  Project-Arbor
-  ├───bin: executable(s).
-  ├───documentation: project documents and deliverables.
-  ├───images: document related images.
-  ├───include: code header files.
-  ├───lib: raylib library and dependencies.
-  ├───resource: resources for source code to push/pull from.
-  │   ├───narrative
-  │   │   ├───lvl1_dungeon
-  │   │   └───lvl2_tavern
-  │   └───save
-  ├───src: .cpp files.
-  │   └───raylib: raylib specific .c/.cpp files
-  └───test: contains relevant copies of code for testing.
-```
+## Table of Contents
+1. [ Team Members ](#1-team-members#section1)
+2. [ Directory Structure ](#2-directory-structure)
+3. [ Project Overview ](#3-project-overview)
+4. [ Building Arbor from Source Code ](#4-building-arbor-from-source-code)
+   1. [ Windows ](#41-windows)
+   2. [ Linus ](#42-linux)
+      1. [ None Debian Distro ](#421-for-none-debian-distros)
+      2. [ Debian Distros ](#422-debian-distros)
+5. [ Running Arbor ](#5-running-arbor)
+
+
+## 2. Directory Structure
 
 <pre>
 <strong>Project-Arbor</strong>
@@ -57,7 +53,7 @@
 └───<strong>test</strong>: contains relevant copies of code for testing.
 </pre>
 
-## Project Overview
+## 3. Project Overview
 
 Arbor is a single player, text-based game, where the user is faced with different choices that guide the overarching story. Each action the user selects has the possibility of leading them down a specific branch of the game's narrative tree, allowing them to reach good, neutral or evil endings as well as customize the path that leads them there. Arbor is aimed at users who enjoy the fantasy genre and narrative driven content.
 
@@ -65,9 +61,9 @@ Arbor is set in a realm beset by magical unrest, rivers run green, once fertile 
 
 The objective of the game is to reach one of the three main narrative conclusions. The likelihood of reaching one of these endings is based upon the quality of the user’s decisions throughout the game. For instance, when faced with gathering information from one of the game’s NPCs, does the player attempt to befriend them or coerce them? If the player is more likely to choose the former, they proceed further down the branch leading towards the “Good” ending, whereas if they choose the latter, then that would lead down the “Evil” ending branch.
 
-## **Building Arbor from Source Code**
+## 4. Building Arbor from Source Code
 
-### Windows
+### 4.1 Windows
 
 Run the command:
 
@@ -75,11 +71,11 @@ Run the command:
 g++ \-o bin/raylib\_main.exe src/raylib/raytest.cpp src/raylib/raygui.cpp \-I include \-L lib \-lraylib \-lgdi32 \-lwinmm
 ```
 
-* Note, currently only 4 or 6 team members are able to compile code using the above command. It’s unclear why this is, but it is being investigated. So, you have been warned that it may not compile in Windows if you don’t have the necessary packages.
+* Note, currently only 4 or 6 team members are able to compile on Windows. It’s unclear why this is so, but it is being investigated. We hope no else experiences this, but be aware of it.
 
-### Linux
+### 4.2 Linux
 
-#### **For none-Debian Distros**
+#### 4.2.1 For none-Debian Distros
 
 * install raylib using your respective package manager. See below link for details and see section Install on GNU Linux:
 
@@ -91,23 +87,45 @@ Run the command:
 g++ \-o bin/linux\_arbor.exe src/main.cpp src/rayGameManager.cpp src/RoomManager.cpp \-I include \-lraylib \-lGL \-lm \-lpthread \-ldl \-lrt \-lX11
 ```
 
-#### **Debian Distros**
+#### 4.2.2 Debian Distros
 
-If you are running a Debian distro, good luck. We haven’t been able to get it to compile on Debian distros.
+If you are running a Debian distro, good luck. We haven’t been able to get it to compile on Debian distros. A couple of developer tried instead the recommended package from link above, but without success. They would get the following error when running the none-Debian distro compile command:
 
-## **Running Arbor**
+```bash
+/usr/bin/ld: warning: rglfw.o: missing .note.GNU-stack section implies executable stack
+/usr/bin/ld: NOTE: This behaviour is deprecated and will be removed in a future version of the linker
+...
+mutiple line regarding undefined references between /user/bin/ld and lib/raylib.a
+...
+lib/libraylib.a(rcore.o):rcore.c:(.pdata+0x0): dangerous relocation: collect2: fatal error: ld terminated with signal 11 [Segmentation fault], core dumped
+compilation terminated.
+```
+Current hypothesis is not using the correct dynamic compiler linkers for a dynamically installed raylib package (ie: installation being on the repo instead of usr).
+
+
+## 5. Running Arbor
 
 On Windows, run:
 
 ```bash
 arbor.exe
 ```
+* A couple of developer when trying to run get a warning about missing files. Those files are:
+  * libgcc_s_seh-1.dll and
+  * libstdc++-6.dll
+It's unclear at this time why this is so when the remaining developers can run Arbor just fine.
 
 On Linux, run:
 
 ```bash
 linux\_arbor.exe
 ```
+* when trying to run this on Debian distro, the following error occurs:
+
+```bash
+./bin/linux_arbor.exe: error while loading shared libraries: libraylib.so.550: cannot open shared object file: No such file or directory
+```
+  The reason for this is in active investigation, but current hypothesis is libraylib.so is missing in the lib directory. Other cause could be not using proper linker during compile for a dynamic raylib package.
 
 For Wine on Linux, run:
 

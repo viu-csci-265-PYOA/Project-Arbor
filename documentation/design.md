@@ -10,23 +10,23 @@ duncan-mcleod-1996
 
 # Table of Contents
 
-1. [ Known issues/omissions ](#section1)
+1. [ Known issues/omissions ](#1-known-issuesomissions)
 
-2. [ Product overview ](#section2)
+2. [ Product overview ](#2-product-overview)
 
-3. [ Core design influences ](#section3)
+3. [ Core design influences ](#3-core-design-influences)
 
-4. [ System context ](#section4)
+4. [ System context ](#4-system-context)
 
-5. [ Architectural design ](#section5)
+5. [ Architectural design ](#5-architectural-design)
 
-6. [ Module descriptions ](#section6)
+6. [ Module descriptions ](#6-module-descriptions)
 
-7. [ Data design ](#section7)
+7. [ Data design ](#7-data-design)
 
-8. [ Game state and flow of play ](#section8)
+8. [ Game state and flow of play ](#8-game-state-and-flow-of-play)
 
-9. [ Transition to physical design ](#section9)
+9. [ Transition to physical design ](#9-transition-to-physical-design)
 
 # List of Figures
 
